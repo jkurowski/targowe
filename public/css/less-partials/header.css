@@ -1,0 +1,84 @@
+.top {
+  background: var(--main-color);
+  padding: 10px 60px;
+}
+.top li {
+  margin-left: 30px;
+}
+.top a {
+  font-size: 14px;
+  color: white;
+  font-weight: 600;
+}
+.navigation {
+  padding: 25px 60px;
+}
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+}
+.main-menu li {
+  display: flex;
+  align-items: center;
+}
+.main-menu li a {
+  font-size: 16px;
+  color: black;
+}
+.lang {
+  display: flex;
+  justify-content: end;
+}
+.lang li {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding-left: 15px;
+  border-left: 1px solid #bfbfbf;
+}
+.lang li a {
+  font-size: 16px;
+  color: black;
+}
+.lang li:first-child {
+  border-left: 0;
+  margin: 0;
+  padding: 0;
+}
+header #logo {
+  width: 190px;
+}
+#slider {
+  width: 100%;
+  background: var(--main-color);
+  position: relative;
+}
+#slider .container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+#slider .container .row {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#slider .container .row .slider-apla h1,
+#slider .container .row .slider-apla span,
+#slider .container .row .slider-apla p {
+  color: white;
+}
+#slider .container .row .slider-apla span {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#slider .container .row .slider-apla h1 {
+  font-size: 90px;
+}
+#slider .container .row .slider-apla p {
+  font-size: 22px;
+}
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,50 @@
+footer {
+  padding: 50px 0;
+  background: black;
+  border-bottom: 2px solid #ab5b30;
+}
+footer p,
+footer li {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 29px;
+}
+footer h4 {
+  font-size: 30px;
+  color: #e5b495;
+  margin-bottom: 20px;
+}
+footer a {
+  color: white;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+footer a:hover {
+  color: var(--main-color-gold);
+}
+footer .footer-invest {
+  padding-right: 50px;
+}
+footer .footer-invest p {
+  font-size: 15px;
+  line-height: 26px;
+}
+footer .footer-box img {
+  width: 200px;
+  filter: brightness(0) invert(1);
+  margin-bottom: 20px;
+}
+#copyright {
+  padding: 30px 0;
+}
+#copyright p {
+  font-size: 12px;
+  line-height: 19px;
+}
+#copyright p,
+#copyright a {
+  color: #292929;
+}
+/*# sourceMappingURL=footer.css.map */
