@@ -26,6 +26,7 @@ class Article extends Model
         'meta_description',
         'meta_robots',
         'status',
-        'sort'
+        'sort',
+        'posted_at'
     ];
 }

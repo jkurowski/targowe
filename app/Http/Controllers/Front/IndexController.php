@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Article;
 use Illuminate\Support\Facades\Cookie;
 
 // CMS
@@ -20,6 +21,7 @@ class IndexController extends Controller
         $investment = Investment::with('plan')->find(9);
         $floors = Floor::orderBy('position')->with('propertiesForSale')->get();
         $galleries = Gallery::where('status', '=', 1)->with('photos')->get();
+        $articles = Article::limit(3)->get();
 
         $popup = 0;
 
@@ -40,11 +42,9 @@ class IndexController extends Controller
 
         return view('front.homepage.index', [
             'galleries' => $galleries,
-            'investment' => $investment,
-            'floors' => $floors,
             'popup' => $popup,
-            'rules' => RodoRules::orderBy('sort')->whereActive(1)->get(),
-            'list' => Map::orderBy('id', 'asc')->get()
+            'articles' => $articles,
+            'rules' => RodoRules::orderBy('sort')->whereActive(1)->get()
         ]);
     }
 

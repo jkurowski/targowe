@@ -1725,326 +1725,48 @@
 
                 <!-- GRID -->
                 <div class="row gy-4">
-                    <!-- 1st  -->
-                    <div
-                            class="col-md-6 col-xl-4"
-                            data-aos="fade-right"
-                            data-aos-delay="600"
-                    >
+
+                    @foreach($articles as $index => $article)
+                        @if($index % 3 == 0)
+                            <div class="col-md-6 col-xl-4" data-aos="fade-right" data-aos-delay="600">
+                                @elseif($index % 3 == 1)
+                                    <div class="col-md-6 col-xl-4" data-aos="fade" data-aos-delay="700">
+                                        @elseif($index % 3 == 2)
+                                            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-0" data-aos="fade-left" data-aos-delay="600">
+                                                @endif
                         <div class="feed-box">
                             <picture>
-                                <source
-                                        srcset="{{ asset('images/home/hero.png') }}"
-                                        media="(max-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <source
-                                        srcset="{{ asset('images/home/hero@2x.png') }}"
-                                        media="(min-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <img
-                                        src="{{ asset('images/home/hero.png') }}"
-                                        width="551"
-                                        height="281"
-                                        class="img-fluid"
-                                        loading="lazy"
-                                        alt="Rysunek architektoniczny mieszkania"
-                                />
+                                <source type="image/webp" srcset="{{asset('/uploads/articles/thumbs/webp/'.$article->file_webp) }}">
+                                <source type="image/jpeg" srcset="{{asset('/uploads/articles/thumbs/'.$article->file) }}">
+                                <img src="{{asset('/uploads/articles/thumbs/'.$article->file) }}" alt="{{ $article->file_alt }}" width="485" height="273" class="img-fluid" loading="lazy">
                             </picture>
+
                             <div class="content-box">
                                 <!-- DATE -->
-                                <div class="date mb-2">20.06.2024</div>
-                                <span class="title mb-2">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr
-                  </span>
+                                <div class="date mb-2">{{ $article->posted_at }}</div>
+                                <span class="title mb-2">{{ $article->title }}</span>
                                 <!-- BUTTON -->
                                 <a class="btn btn-primary mb-2" href="{{ route('plan') }}">
                                     Czytaj więcej
-                                    <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="19.971"
-                                            height="19.971"
-                                            viewBox="0 0 19.971 19.971"
-                                    >
-                                        <g
-                                                id="Group_816"
-                                                data-name="Group 816"
-                                                transform="translate(-339 -1753.929)"
-                                        >
-                                            <g
-                                                    id="Ellipse_20"
-                                                    data-name="Ellipse 20"
-                                                    transform="translate(358.971 1753.929) rotate(90)"
-                                                    fill="#345e3e"
-                                                    stroke="#345e3e"
-                                                    stroke-width="1"
-                                            >
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.985"
-                                                        ry="9.985"
-                                                        stroke="none"
-                                                />
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.485"
-                                                        ry="9.485"
-                                                        fill="none"
-                                                />
+                                    <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
+                                        <g transform="translate(-339 -1753.9)" data-name="Group 816">
+                                            <g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20">
+                                                <ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/>
+                                                <ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/>
                                             </g>
-                                            <g
-                                                    id="Icon_feather-arrow-up-right"
-                                                    data-name="Icon feather-arrow-up-right"
-                                                    transform="translate(348.985 1759.839) rotate(45)"
-                                            >
-                                                <path
-                                                        id="Path_14793"
-                                                        data-name="Path 14793"
-                                                        d="M0,5.764,5.764,0"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
-                                                <path
-                                                        id="Path_14794"
-                                                        data-name="Path 14794"
-                                                        d="M0,0H5.764V5.764"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
+                                            <g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right">
+                                                <path d="M0,5.764,5.764,0" data-name="Path 14793"/>
+                                                <path d="m0 0h5.764v5.764" data-name="Path 14794"/>
                                             </g>
                                         </g>
                                     </svg>
                                 </a>
                             </div>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
-                            <a
-                                    href="{{ route('plan') }}"
-                                    class="whole-box"
-                                    aria-label="Link do aktualności"
-                            ></a>
+                            <a href="#" class="whole-box" aria-label="Link do aktualności"></a>
                         </div>
                     </div>
-                    <!-- 2nd  -->
-                    <div class="col-md-6 col-xl-4" data-aos="fade" data-aos-delay="700">
-                        <div class="feed-box">
-                            <picture>
-                                <source
-                                        srcset="{{ asset('images/home/hero.png') }}"
-                                        media="(max-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <source
-                                        srcset="{{ asset('images/home/hero@2x.png') }}"
-                                        media="(min-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <img
-                                        src="{{ asset('images/home/hero.png') }}"
-                                        width="551"
-                                        height="281"
-                                        class="img-fluid"
-                                        loading="lazy"
-                                        alt="Rysunek architektoniczny mieszkania"
-                                />
-                            </picture>
-                            <div class="content-box">
-                                <!-- DATE -->
-                                <div class="date mb-2">20.06.2024</div>
-                                <span class="title mb-2">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr
-                  </span>
-                                <!-- BUTTON -->
-                                <a class="btn btn-primary mb-2" href="{{ route('plan') }}">
-                                    Czytaj więcej
-                                    <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="19.971"
-                                            height="19.971"
-                                            viewBox="0 0 19.971 19.971"
-                                    >
-                                        <g
-                                                id="Group_816"
-                                                data-name="Group 816"
-                                                transform="translate(-339 -1753.929)"
-                                        >
-                                            <g
-                                                    id="Ellipse_20"
-                                                    data-name="Ellipse 20"
-                                                    transform="translate(358.971 1753.929) rotate(90)"
-                                                    fill="#345e3e"
-                                                    stroke="#345e3e"
-                                                    stroke-width="1"
-                                            >
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.985"
-                                                        ry="9.985"
-                                                        stroke="none"
-                                                />
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.485"
-                                                        ry="9.485"
-                                                        fill="none"
-                                                />
-                                            </g>
-                                            <g
-                                                    id="Icon_feather-arrow-up-right"
-                                                    data-name="Icon feather-arrow-up-right"
-                                                    transform="translate(348.985 1759.839) rotate(45)"
-                                            >
-                                                <path
-                                                        id="Path_14793"
-                                                        data-name="Path 14793"
-                                                        d="M0,5.764,5.764,0"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
-                                                <path
-                                                        id="Path_14794"
-                                                        data-name="Path 14794"
-                                                        d="M0,0H5.764V5.764"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </a>
-                            </div>
-                            <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
-                            <a
-                                    href="{{ route('plan') }}"
-                                    class="whole-box"
-                                    aria-label="Link do aktualności"
-                            ></a>
-                        </div>
-                    </div>
-                    <!-- 3rd  -->
-                    <div
-                            class="col-md-6 offset-md-3 col-xl-4 offset-xl-0"
-                            data-aos="fade-left"
-                            data-aos-delay="600"
-                    >
-                        <div class="feed-box">
-                            <picture>
-                                <source
-                                        srcset="{{ asset('images/home/hero.png') }}"
-                                        media="(max-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <source
-                                        srcset="{{ asset('images/home/hero@2x.png') }}"
-                                        media="(min-width: 992px)"
-                                        type="image/png') }}"
-                                />
-                                <img
-                                        src="{{ asset('images/home/hero.png') }}"
-                                        width="551"
-                                        height="281"
-                                        class="img-fluid"
-                                        loading="lazy"
-                                        alt="Rysunek architektoniczny mieszkania"
-                                />
-                            </picture>
-                            <div class="content-box">
-                                <!-- DATE -->
-                                <div class="date mb-2">20.06.2024</div>
-                                <span class="title mb-2">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr
-                  </span>
-                                <!-- BUTTON -->
-                                <a class="btn btn-primary mb-2" href="{{ route('plan') }}">
-                                    Czytaj więcej
-                                    <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="19.971"
-                                            height="19.971"
-                                            viewBox="0 0 19.971 19.971"
-                                    >
-                                        <g
-                                                id="Group_816"
-                                                data-name="Group 816"
-                                                transform="translate(-339 -1753.929)"
-                                        >
-                                            <g
-                                                    id="Ellipse_20"
-                                                    data-name="Ellipse 20"
-                                                    transform="translate(358.971 1753.929) rotate(90)"
-                                                    fill="#345e3e"
-                                                    stroke="#345e3e"
-                                                    stroke-width="1"
-                                            >
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.985"
-                                                        ry="9.985"
-                                                        stroke="none"
-                                                />
-                                                <ellipse
-                                                        cx="9.985"
-                                                        cy="9.985"
-                                                        rx="9.485"
-                                                        ry="9.485"
-                                                        fill="none"
-                                                />
-                                            </g>
-                                            <g
-                                                    id="Icon_feather-arrow-up-right"
-                                                    data-name="Icon feather-arrow-up-right"
-                                                    transform="translate(348.985 1759.839) rotate(45)"
-                                            >
-                                                <path
-                                                        id="Path_14793"
-                                                        data-name="Path 14793"
-                                                        d="M0,5.764,5.764,0"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
-                                                <path
-                                                        id="Path_14794"
-                                                        data-name="Path 14794"
-                                                        d="M0,0H5.764V5.764"
-                                                        fill="none"
-                                                        stroke="#fffbf5"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="1"
-                                                />
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </a>
-                            </div>
-                            <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
-                            <a
-                                    href="{{ route('plan') }}"
-                                    class="whole-box"
-                                    aria-label="Link do aktualności"
-                            ></a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
