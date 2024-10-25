@@ -8,6 +8,7 @@ use App\Models\Floor;
 use App\Models\Page;
 use App\Models\Property;
 use App\Models\RodoRules;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\In;
 
 class InvestmentPropertyController extends Controller
@@ -19,10 +20,9 @@ class InvestmentPropertyController extends Controller
         $this->pageId = 2;
     }
 
-    public function index($lang, $investment_id, $floor_id, Property $property)
+    public function index($lang, $slug, Floor $floor, $floor_slug, Property $property, Request $request)
     {
-        $floor = Floor::find($floor_id);
-        $investment = Investment::find($investment_id);
+        $investment = Investment::whereSlug($slug)->first();
 
         $page = Page::where('id', $this->pageId)->first();
 

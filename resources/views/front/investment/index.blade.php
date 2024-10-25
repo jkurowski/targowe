@@ -6,72 +6,31 @@
 
 @section('content')
     <main class="apartments">
-        <div class="margin-breadcrumb">
+        @include('layouts.partials.developro-header', ['title' => ($page->meta_title) ? $page->meta_title : $page->title])
+
+        <section class="margin-below-breadcrumb">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="/">Home</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="{{ route('plan') }}">{{ $page->title }}</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    {{ $investment->name }}
-                                </li>
-                            </ol>
-                        </nav>
+                <div class="row mb-3 mb-lg-5 position-relative">
+                    <div class="row-tag row-tag-224">
+                        <span class="title">OSIEDLE TARGOWE</span>
+                    </div>
+                    <div class="offset-1 offset-sm-0 col-11 col-lg-4">
+                        <!-- TITLE -->
+                        <h1 class="header-1 mb-30px" data-aos="fade-up">Mieszkania</h1>
+                        <!-- PARAGRAPH -->
+                        <p
+                                class="paragraph text-pretty mb-30px"
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                        >
+                            W ofercie osiedla „Osiedle Targowe” dostępne są zarówno
+                            mieszkania idealne na start, jak i przestronne, kilkupokojowe
+                            mieszkania z dużymi balkonami, które cieszą się popularnością
+                            wśród rodzin z dziećmi.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <section class="mt-3">
-            <div class="container">
                 <div class="row">
-                    <div class="col-6">
-                        @if($investment->id == 3)
-                        <a href="{{ route('show', 'blok-1') }}" class="floor-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.142 33.142">
-                                <g id="Group_979" data-name="Group 979" transform="translate(-741 -1177)">
-                                    <g id="Ellipse_19" data-name="Ellipse 19" transform="translate(741 1210.142) rotate(-90)" fill="none" stroke="#345e3e" stroke-width="1">
-                                        <circle cx="16.571" cy="16.571" r="16.571" stroke="none"></circle>
-                                        <circle cx="16.571" cy="16.571" r="16.071" fill="none"></circle>
-                                    </g>
-                                    <g id="Icon_feather-arrow-up-right" data-name="Icon feather-arrow-up-right" transform="translate(757.558 1199.117) rotate(-135)">
-                                        <path id="Path_14793" data-name="Path 14793" d="M10.5,18.361,18.361,10.5" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                        <path id="Path_14794" data-name="Path 14794" d="M10.5,10.5h7.861v7.861" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                    </g>
-                                </g>
-                            </svg>
-                            <div class="floor-link-name">Blok 1</div>
-                        </a>
-                        @endif
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                        @if($investment->id == 2)
-                        <a href="{{ route('show', 'blok-2') }}" class="floor-link">
-                            <div class="floor-link-name">Blok 2</div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.142 33.142">
-                                <g id="Group_837" data-name="Group 837" transform="translate(804.071 5666.385) rotate(-180)">
-                                    <g id="Ellipse_19" data-name="Ellipse 19" transform="translate(770.929 5666.385) rotate(-90)" fill="none" stroke="#345e3e" stroke-width="1">
-                                        <circle cx="16.571" cy="16.571" r="16.571" stroke="none"></circle>
-                                        <circle cx="16.571" cy="16.571" r="16.071" fill="none"></circle>
-                                    </g>
-                                    <g id="Icon_feather-arrow-up-right" data-name="Icon feather-arrow-up-right" transform="translate(787.487 5655.359) rotate(-135)">
-                                        <path id="Path_14793" data-name="Path 14793" d="M10.5,18.361,18.361,10.5" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                        <path id="Path_14794" data-name="Path 14794" d="M10.5,10.5h7.861v7.861" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                    </g>
-                                </g>
-                            </svg>
-                        </a>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="row mt-5">
                     <div class="col-12">
                         <!-- FORM -->
                         <div class="col-12 mb-3 mb-md-0">
@@ -79,19 +38,17 @@
                                 <div class="img-box">
                                     <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
                                     <map name="invesmentplan">
-                                        @foreach($floors as $int => $floor)
-                                            @if($floor->html)
-                                                <area
-                                                        shape="poly"
-                                                        href="{{route('floor', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name)])}}"
-                                                        title="<div class='qtip-floor'><h4>{{$floor->name}}</h4>@if($floor->id > 1)Wolne mieszkania: {{$floor->propertiesForSale->count()}} @if($floor->propertiesReservation()->count() > 0) <br>Rezerwacje: {{$floor->propertiesReservation()->count()}} @endif</div>@endif"
-                                                        alt="floor-{{$int}}"
-                                                        data-item="{{$floor->id}}"
-                                                        data-slick="{{$int}}"
-                                                        data-floortype="{{$floor->type}}"
-                                                        coords="@if($floor->html) {{cords($floor->html)}} @endif">
-                                            @endif
-                                        @endforeach
+                                        <area shape="poly"
+                                              href="{{ route('show', 'blok-1') }}"
+                                              alt="Blok 1"
+                                              coords="221,431,491,629,639,585,634,564,639,563,641,554,635,546,635,540,657,533,657,524,641,507,641,487,657,482,657,473,641,460,640,441,633,435,636,426,598,397,592,400,417,269,420,269,383,240,240,279,241,291,221,296,222,308,241,322,240,342,219,347,219,356,241,373,241,392,220,398,219,407,241,426"/>
+
+                                        <area
+                                                shape="poly"
+                                                href="{{ route('show', 'blok-2') }}"
+                                                alt="Blok 2"
+                                                coords="702,290,724,283,701,266,702,256,724,249,724,232,702,216,702,206,724,198,724,181,702,165,701,155,722,149,723,137,863,98,903,126,898,127,1075,255,1079,254,1119,282,1119,293,1115,293,1122,299,1123,317,1139,330,1140,340,1119,346,1123,351,1123,369,1140,381,1140,390,1118,398,1118,406,1122,411,1123,421,1117,423,1116,438,1122,444,972,486"
+                                        />
                                     </map>
                                 </div>
                                 <div class="title text-center fw-bold mt-3 mb-4">
@@ -3633,6 +3590,5 @@
 @endsection
 @push('scripts')
     <script src="{{ asset('/js/plan/imagemapster.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('/js/plan/tip.js') }}" charset="utf-8"></script>
     <script src="{{ asset('/js/plan/plan.js') }}" charset="utf-8"></script>
 @endpush

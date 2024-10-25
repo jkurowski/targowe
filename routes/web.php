@@ -23,7 +23,8 @@ Route::middleware(['restrictIp'])->group(function () {
     Route::group(['prefix' => '{locale?}', 'where' => ['locale' => '(?!admin)*[a-z]{2}'],], function() {
         Route::group(['namespace' => 'Front'], function () {
             Route::get('/', 'IndexController@index')->name('index');
-            Route::get('/mieszkania', 'InvestmentController@show')->name('plan');
+            Route::get('/mieszkania', 'InvestmentController@index')->name('plan');
+            Route::get('/mieszkania/{slug}', 'InvestmentController@show')->name('show');
 
             Route::get('/o-inwestycji', 'About\IndexController@index')->name('about');
 
@@ -32,16 +33,12 @@ Route::middleware(['restrictIp'])->group(function () {
             Route::get('/deweloper', 'Static\IndexController@deweloper')->defaults('locale', 'pl')->name('static.deweloper');
             Route::get('/polityka-prywatnosci', 'Static\IndexController@privacy')->defaults('locale', 'pl')->name('static.polityka-prywatnosci');
 
-            // Developro
-            Route::group(['prefix'=>'/pietro', 'as' => 'front.investment.'], function() {
-                // Inwestycja budynkowa
+            Route::get('/mieszkania/{slug}/p/{floor},{floor_slug}',
+                'Developro\InvestmentFloorController@index')->name('floor');
 
-                Route::get('/budynek/{investment_id}/p/{floor}',
-                    'Developro\InvestmentFloorController@index')->name('floor');
+            Route::get('/mieszkania/{slug}/p/{floor},{floor_slug}/m/{property},{property_slug}',
+                'Developro\InvestmentPropertyController@index')->name('property');
 
-                Route::get('/budynek/{investment_id}/p/{floor}/m/{property}',
-                    'Developro\InvestmentPropertyController@index')->name('property');
-            });
 
             Route::get('/kontakt', 'ContactController@index')->name('contact.index');
             Route::post('/kontakt', 'ContactController@contact')->name('contact.form');

@@ -93,7 +93,7 @@
                         <a class="nav-link" href="{{ route('about') }}"><span>o inwestycji</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mieszkania"><span>mieszkania</span></a>
+                        <a class="nav-link" href="{{ route('plan') }}"><span>mieszkania</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('gallery') }}"><span>galeria</span></a>

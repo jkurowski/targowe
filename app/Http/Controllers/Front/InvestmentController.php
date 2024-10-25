@@ -21,12 +21,23 @@ class InvestmentController extends Controller
     public function __construct(InvestmentRepository $repository)
     {
         $this->repository = $repository;
-        $this->pageId = 2;
+        $this->pageId = 8;
     }
 
-    public function show(Request $request)
+    public function index()
     {
-        $investments = Investment::with('floors')->get();
+        $investment = Investment::find(1);
+        $page = Page::find(1);
+
+        return view('front.investment.index', [
+            'page' => $page,
+            'investment' => $investment
+        ]);
+    }
+
+    public function show($lang, $slug, Request $request)
+    {
+        $investment = Investment::whereSlug($slug)->with('floors')->first();
 
         $query = Property::orderBy('status', 'ASC')->where('type', '!=', 2)->where('type', '!=', 3)->with('investment');
 
@@ -60,7 +71,7 @@ class InvestmentController extends Controller
         $floors = Floor::orderBy('position')->with('propertiesForSale')->get();
 
         return view('front.investment.show', [
-            'investments' => $investments,
+            'investment' => $investment,
             'properties' => $query->get(),
             'floors' => $floors,
             'page' => $page

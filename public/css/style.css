@@ -15434,11 +15434,9 @@ p {
   position: relative;
   overflow: hidden;
 }
-.apartments .apartments-box .img-box img {
-  width: auto;
-  height: 100%;
-  max-height: 520px;
-  object-fit: contain;
+#invesmentplan, .property-img img {
+  max-width: 100%;
+  height: auto;
 }
 .apartments .apartment-title {
   width: 100%;

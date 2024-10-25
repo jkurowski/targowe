@@ -22,13 +22,9 @@ class InvestmentFloorController extends Controller
         $this->pageId = 2;
     }
 
-    public function index($lang, $investment, $id, Request $request)
+    public function index($lang, $slug, Floor $floor, $floor_slug, Request $request)
     {
-
-        $floor = Floor::find($id);
-        $investment = Investment::find($investment);
-
-        $investments = Investment::with('floors')->get();
+        $investment = Investment::whereSlug($slug)->first();
 
         $investment_room = $investment->load(array(
             'floorRooms' => function ($query) use ($floor, $request) {
@@ -54,14 +50,13 @@ class InvestmentFloorController extends Controller
                     $query->orderBy($column, $direction);
                 }
 
-                $query->where('properties.active', '=', 1);
+                //$query->where('properties.active', '=', 1);
             }
         ));
 
         $page = Page::where('id', $this->pageId)->first();
 
         return view('front.investment_floor.index', [
-            'investments' => $investments,
             'investment' => $investment_room,
             'floor' => $floor,
             'properties' => $investment_room->floorRooms,
