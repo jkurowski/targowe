@@ -61,10 +61,17 @@
                                             '1' => 'Tak'
                                             ]
                                         ])
-                                        @include('form-elements.html-select', ['label' => 'Typ powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
+                                        @include('form-elements.html-select', ['label' => 'Rodzaj powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
                                             '1' => 'Mieszkanie / Apartament',
                                             '2' => 'Komórka lokatorska',
                                             '3' => 'Miejsce parkingowe'
+                                            ]
+                                        ])
+                                        @include('form-elements.html-select', ['label' => 'Typ powierzchni', 'name' => 'apartment_type', 'selected' => $entry->apartment_type, 'select' => [
+                                            '1' => 'M1',
+                                            '2' => 'M2',
+                                            '3' => 'M3',
+                                            '4' => 'M4'
                                             ]
                                         ])
                                         @include('form-elements.html-select', [

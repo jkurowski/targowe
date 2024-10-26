@@ -34,6 +34,7 @@ class PropertyFormRequest extends FormRequest
             'number' => 'required|string|max:255',
             'number_order' => 'integer',
             'type' => 'required|integer',
+            'apartment_type' => 'required|integer',
             'specialoffer' => 'required|integer',
             'specialoffer_text' => 'nullable|max:250',
             'garage_text' => 'nullable|max:250',

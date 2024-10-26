@@ -39,6 +39,7 @@ class Property extends Model
         'view_3d',
         'view_360',
         'type',
+        'apartment_type',
         'specialoffer',
         'specialoffer_text',
         'garage_text',
