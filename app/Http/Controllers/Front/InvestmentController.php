@@ -68,7 +68,7 @@ class InvestmentController extends Controller
         $query->whereActive(1);
 
         $page = Page::where('id', $this->pageId)->first();
-        $floors = Floor::orderBy('position')->with('propertiesForSale')->get();
+        $floors = Floor::orderBy('position')->where('investment_id', '=', $investment->id)->with('propertiesForSale')->get();
 
         return view('front.investment.show', [
             'investment' => $investment,
