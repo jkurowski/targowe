@@ -325,7 +325,7 @@
                                                 <picture>
                                                     <source type="image/webp" srcset="/investment/property/list/webp/{{$p->file_webp}}">
                                                     <source type="image/jpeg" srcset="/investment/property/list/{{$p->file}}">
-                                                    <img src="/investment/property/list/{{$p->file}}" alt="{{$p->name}}" class="img-fluid" loading="lazy">
+                                                    <img src="/investment/property/list/{{$p->file}}" alt="{{$p->name}}" class="img-fluid" loading="lazy" width="183" height="129">
                                                 </picture>
                                             </div>
 
