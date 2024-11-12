@@ -24,14 +24,43 @@ class InvestmentController extends Controller
         $this->pageId = 8;
     }
 
-    public function index()
+    public function index($lang, Request $request)
     {
         $investment = Investment::find(1);
         $page = Page::find(1);
 
+        $query = Property::orderBy('status', 'ASC')->where('type', '!=', 2)->where('type', '!=', 3)->with('investment');
+
+        if ($request->input('rooms')) {
+            $query->where('rooms', $request->input('rooms'));
+        }
+        if ($request->input('status')) {
+            $query->where('status', $request->input('status'));
+        }
+
+
+        if ($request->has('floor')) {
+            $floorNumber = $request->input('floor');
+
+            if ($floorNumber === '0' || !empty($floorNumber)) {
+                $floorIds = Floor::where('number', (int)$floorNumber)->pluck('id')->toArray();
+                $query->whereIn('floor_id', $floorIds);
+            }
+        }
+
+        if ($request->input('area')) {
+            $area_param = explode('-', $request->input('area'));
+            $min = $area_param[0];
+            $max = $area_param[1];
+            $query->whereBetween('area', [$min, $max]);
+        }
+
+        $query->whereActive(1);
+
         return view('front.investment.index', [
             'page' => $page,
-            'investment' => $investment
+            'investment' => $investment,
+            'properties' => $query->get(),
         ]);
     }
 

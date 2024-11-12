@@ -116,6 +116,11 @@ class Property extends Model
         )->where('notifiable_type', 'App\Models\Property')->latest();
     }
 
+    public function floor()
+    {
+        return $this->belongsTo(Floor::class);
+    }
+
     public function investment()
     {
         return $this->belongsTo('App\Models\Investment');
