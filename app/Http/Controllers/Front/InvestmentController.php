@@ -66,9 +66,9 @@ class InvestmentController extends Controller
 
     public function show($lang, $slug, Request $request)
     {
-        $investment = Investment::whereSlug($slug)->with('floors')->first();
+        $investment = Investment::whereSlug($slug)->first();
 
-        $query = Property::orderBy('status', 'ASC')->where('type', '!=', 2)->where('type', '!=', 3)->with('investment');
+        $query = Property::orderBy('status', 'ASC')->where('type', '!=', 2)->where('type', '!=', 3)->where('investment_id', '=', $investment->id)->with('floor');
 
         if ($request->input('rooms')) {
             $query->where('rooms', $request->input('rooms'));
@@ -97,7 +97,7 @@ class InvestmentController extends Controller
         $query->whereActive(1);
 
         $page = Page::where('id', $this->pageId)->first();
-        $floors = Floor::orderBy('position')->where('investment_id', '=', $investment->id)->with('propertiesForSale')->get();
+        $floors = Floor::orderBy('position')->where('investment_id', '=', $investment->id)->get();
 
         return view('front.investment.show', [
             'investment' => $investment,

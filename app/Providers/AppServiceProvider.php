@@ -112,11 +112,9 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
-        view()->composer('*', function ($view) {
-            $view->with('current_locale', app()->getLocale());
-            $view->with('available_locales', config('app.available_locales'));
-            $view->with('rules', RodoRules::orderBy('sort')->whereActive(1)->get());
-        });
+        View::share('current_locale', app()->getLocale());
+        View::share('available_locales', config('app.available_locales'));
+        View::share('rules', RodoRules::orderBy('sort')->whereActive(1)->get());
 
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format((float) $amount, 2, ',', ' ') . ' zł'; ?>";
