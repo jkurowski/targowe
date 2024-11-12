@@ -57,7 +57,7 @@ class InvestmentFloorController extends Controller
         $page = Page::where('id', $this->pageId)->first();
 
         return view('front.investment_floor.index', [
-            'investment' => $investment_room,
+            'investment' => $investment,
             'floor' => $floor,
             'properties' => $investment_room->floorRooms,
             'uniqueRooms' => $this->repository->getUniqueRooms($floor->properties()),
