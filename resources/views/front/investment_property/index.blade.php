@@ -252,7 +252,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <div class="ap-info-text">M3</div>
+                                            <div class="ap-info-text">{!! apartament_type($property->apartment_type) !!}</div>
                                         </div>
                                     </div>
                                     <!-- SQUARES -->
@@ -727,7 +727,17 @@
                                                     />
                                                 </svg>
                                             </div>
-                                            <div class="ap-info-text">Taras</div>
+                                                <div class="ap-info-text">
+                                                    @if($property->balcony_area)
+                                                        Balkon
+                                                    @endif
+                                                    @if($property->garden_area)
+                                                        Ogródek
+                                                    @endif
+                                                    @if($property->terrace_area)
+                                                        Taras
+                                                    @endif
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

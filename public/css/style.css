@@ -15561,7 +15561,7 @@ p {
 }
 .apartments .main-ap-box-row .apartment-box .info-box {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   flex-basis: 0;

@@ -409,10 +409,13 @@
                                                     </div>
 
                                                     @if($p->balcony_area)
-                                                        <div class="info-text-text">Balkon</div>
+                                                        Balkon
                                                     @endif
                                                     @if($p->garden_area)
-                                                        <div class="info-text-text">Ogródek</div>
+                                                        Ogródek
+                                                    @endif
+                                                    @if($p->terrace_area)
+                                                        Taras
                                                     @endif
                                                 </div>
                                             </div>
