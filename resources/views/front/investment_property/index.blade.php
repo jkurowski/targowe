@@ -183,6 +183,7 @@
                         <div class="apartment-ap-tag mb-4 bg-success" data-aos="fade-up" data-aos-delay="200">
                             Status: {{ $property->status }}
                         </div>
+
                         <!-- PARAGRAPH -->
                         <div class="mb-5 d-none">
                             <p

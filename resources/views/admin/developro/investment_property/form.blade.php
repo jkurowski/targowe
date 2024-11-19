@@ -106,10 +106,10 @@
                                             '6' => '6'
                                             ]
                                         ])
-                                        @include('form-elements.html-select', [
+                                        @include('form-elements.html-select-multiple', [
                                             'label' => 'Wystawa okna',
                                             'name' => 'window',
-                                            'selected' => $entry->window,
+                                            'selected' => multiselect($entry->window),
                                             'select' => [
                                                 '0' => 'Brak informacji',
                                                 '1' => 'Północ',
