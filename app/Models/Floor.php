@@ -57,6 +57,28 @@ class Floor extends Model
         return $this->hasMany('App\Models\Floor', 'parent_id', 'id')->orderBy('position');
     }
 
+    public function findNext(int $investment, int $building = null, int $position)
+    {
+        $query = $this->where('investment_id', $investment)->where('position', '>', $position)->orderBy('position');
+
+        if ($building) {
+            $query->where('building_id', $building);
+        }
+
+        return $query->first();
+    }
+
+    public function findPrev(int $investment, int $building = null, int $position)
+    {
+        $query = $this->where('investment_id', $investment)->where('position', '<', $position)->orderByDesc('position');
+
+        if ($building) {
+            $query->where('building_id', $building);
+        }
+
+        return $query->first();
+    }
+
     /**
      * The "boot" method of the model.
      *

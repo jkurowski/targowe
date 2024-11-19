@@ -34,9 +34,76 @@
         <section class="mt-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
-                        @if($investment->id == 3)
+                    <div class="col-4">
+                        @if($prev_floor)
+                            <a href="{{route('floor', [$investment->slug, $prev_floor, 'floor_slug' => Str::slug($prev_floor->name)])}}" class="floor-link">
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="33.142"
+                                        height="33.142"
+                                        viewBox="0 0 33.142 33.142"
+                                >
+                                    <g
+                                            id="Group_979"
+                                            data-name="Group 979"
+                                            transform="translate(-741 -1177)"
+                                    >
+                                        <g
+                                                id="Ellipse_19"
+                                                data-name="Ellipse 19"
+                                                transform="translate(741 1210.142) rotate(-90)"
+                                                fill="none"
+                                                stroke="#345e3e"
+                                                stroke-width="1"
+                                        >
+                                            <circle
+                                                    cx="16.571"
+                                                    cy="16.571"
+                                                    r="16.571"
+                                                    stroke="none"
+                                            />
+                                            <circle cx="16.571" cy="16.571" r="16.071" fill="none" />
+                                        </g>
+                                        <g
+                                                id="Icon_feather-arrow-up-right"
+                                                data-name="Icon feather-arrow-up-right"
+                                                transform="translate(757.558 1199.117) rotate(-135)"
+                                        >
+                                            <path
+                                                    id="Path_14793"
+                                                    data-name="Path 14793"
+                                                    d="M10.5,18.361,18.361,10.5"
+                                                    transform="translate(-10.5 -10.5)"
+                                                    fill="none"
+                                                    stroke="#345e3e"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1"
+                                            />
+                                            <path
+                                                    id="Path_14794"
+                                                    data-name="Path 14794"
+                                                    d="M10.5,10.5h7.861v7.861"
+                                                    transform="translate(-10.5 -10.5)"
+                                                    fill="none"
+                                                    stroke="#345e3e"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1"
+                                            />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <div class="floor-link-name">{{ $prev_floor->name }}</div>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-4 d-flex justify-content-center">
+                        @if($investment->id == 2)
                             <a href="{{ route('show', 'blok-1') }}" class="floor-link">
+                        @else
+                            <a href="{{ route('show', 'blok-2') }}" class="floor-link">
+                        @endif
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.142 33.142">
                                     <g id="Group_979" data-name="Group 979" transform="translate(-741 -1177)">
                                         <g id="Ellipse_19" data-name="Ellipse 19" transform="translate(741 1210.142) rotate(-90)" fill="none" stroke="#345e3e" stroke-width="1">
@@ -49,23 +116,71 @@
                                         </g>
                                     </g>
                                 </svg>
-                                <div class="floor-link-name">Blok 1</div>
+                                @if($investment->id == 2)
+                                    <div class="floor-link-name">Wróć do planu Blok 1</div>
+                                        @else
+                                    <div class="floor-link-name">Wróć do planu Blok 2</div>
+                                @endif
                             </a>
-                        @endif
                     </div>
-                    <div class="col-6 d-flex justify-content-end">
-                        @if($investment->id == 2)
-                            <a href="{{ route('show', 'blok-2') }}" class="floor-link">
-                                <div class="floor-link-name">Blok 2</div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.142 33.142">
-                                    <g id="Group_837" data-name="Group 837" transform="translate(804.071 5666.385) rotate(-180)">
-                                        <g id="Ellipse_19" data-name="Ellipse 19" transform="translate(770.929 5666.385) rotate(-90)" fill="none" stroke="#345e3e" stroke-width="1">
-                                            <circle cx="16.571" cy="16.571" r="16.571" stroke="none"></circle>
-                                            <circle cx="16.571" cy="16.571" r="16.071" fill="none"></circle>
+                    <div class="col-4 d-flex justify-content-end">
+                        @if($next_floor)
+                            <a href="{{route('floor', [$investment->slug, $next_floor, 'floor_slug' => Str::slug($next_floor->name)])}}" class="floor-link">
+                                <div class="floor-link-name">{{ $next_floor->name }}</div>
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="33.142"
+                                        height="33.142"
+                                        viewBox="0 0 33.142 33.142"
+                                >
+                                    <g
+                                            id="Group_837"
+                                            data-name="Group 837"
+                                            transform="translate(804.071 5666.385) rotate(-180)"
+                                    >
+                                        <g
+                                                id="Ellipse_19"
+                                                data-name="Ellipse 19"
+                                                transform="translate(770.929 5666.385) rotate(-90)"
+                                                fill="none"
+                                                stroke="#345e3e"
+                                                stroke-width="1"
+                                        >
+                                            <circle
+                                                    cx="16.571"
+                                                    cy="16.571"
+                                                    r="16.571"
+                                                    stroke="none"
+                                            />
+                                            <circle cx="16.571" cy="16.571" r="16.071" fill="none" />
                                         </g>
-                                        <g id="Icon_feather-arrow-up-right" data-name="Icon feather-arrow-up-right" transform="translate(787.487 5655.359) rotate(-135)">
-                                            <path id="Path_14793" data-name="Path 14793" d="M10.5,18.361,18.361,10.5" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
-                                            <path id="Path_14794" data-name="Path 14794" d="M10.5,10.5h7.861v7.861" transform="translate(-10.5 -10.5)" fill="none" stroke="#345e3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
+                                        <g
+                                                id="Icon_feather-arrow-up-right"
+                                                data-name="Icon feather-arrow-up-right"
+                                                transform="translate(787.487 5655.359) rotate(-135)"
+                                        >
+                                            <path
+                                                    id="Path_14793"
+                                                    data-name="Path 14793"
+                                                    d="M10.5,18.361,18.361,10.5"
+                                                    transform="translate(-10.5 -10.5)"
+                                                    fill="none"
+                                                    stroke="#345e3e"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1"
+                                            />
+                                            <path
+                                                    id="Path_14794"
+                                                    data-name="Path 14794"
+                                                    d="M10.5,10.5h7.861v7.861"
+                                                    transform="translate(-10.5 -10.5)"
+                                                    fill="none"
+                                                    stroke="#345e3e"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1"
+                                            />
                                         </g>
                                     </g>
                                 </svg>
