@@ -15885,4 +15885,62 @@ p {
   color: #6e8373;
   font-weight: 700;
 }
+
+.qtip {position:absolute;left:-28000px;top:-28000px;display:none;width:190px;box-shadow:none;}
+.qtip-content {position:relative;overflow:hidden;text-align:left;word-wrap:break-word;color:white !important;font-size:13px !important;line-height:16px;padding:10px 10px;-webkit-border-radius: 0px;-moz-border-radius: 0px;border-radius: 0px}
+.qtip-default .qtip-content {background:#6e8373}
+.qtip-tip{margin: 0 auto;overflow: hidden;z-index: 10;}
+.qtip-tip{visibility: hidden}
+.qtip-tip, .qtip-tip canvas{position: absolute;color:#222 !important;border: 0 dashed transparent !important}
+.qtip-tip canvas{ top: 0; left: 0; }
+.qtip-content h4 {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  font-family: 'Poppins',sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.qtip-content ul {
+  margin-top: 5px;
+}
+.qtip-content p {
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 10px;
+  text-align: justify;
+}
+.qtip-content li {
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 5px 0;
+  font-weight: 300;
+  &:last-child {
+    padding-bottom: 0;
+    border:0
+  }
+  b {
+    font-weight:600;
+    float: right;
+  }
+}
+
+
+/* Kolory dymkow
+'1' => 'Na sprzedaż',
+'2' => 'Rezerwacja',
+'3' => 'Sprzedane',
+'4' => 'Wynajęte'
+*/
+.qtip.status-1 .qtip-content {background:#1ebf00;border:1px solid #1ebf00}
+.qtip.status-1 .qtip-content canvas {background:#1ebf00}
+.qtip.status-2 .qtip-content {background:#ffcb00;border:1px solid #ffcb00;color:black !important;}
+.qtip.status-2 .qtip-content h4 {color:black !important;}
+.qtip.status-2 .qtip-content canvas {background:#ffcb00;color:black}
+.qtip.status-3 .qtip-content {background:#ec2327;border:1px solid #ec2327}
+.qtip.status-3 .qtip-content canvas {background:#ec2327}
+.qtip.status-4 .qtip-content {background:#de8300;border:1px solid #de8300}
+.qtip.status-4 .qtip-content canvas {background:#de8300}
+
 .formError{position:absolute;top:300px;left:300px;display:block;z-index:500;cursor:pointer;border:0 !important;}.formError .formErrorContent{background:#ff9000;position:relative;z-index:5001;color:#fff;width:190px;font-size:10px;border:1px solid #ff9000;line-height:normal;padding:2px 10px 2px 10px}.formError .formErrorArrow{width:12px;margin:-2px 0 0 1px;position:relative;z-index:5006}.formError .formErrorArrowBottom{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;margin:0 0 0 12px;top:2px}.formError .formErrorArrow div{font-size:0;height:1px;background:#ff9000;margin:0 auto;line-height:0;display:block}.formError .formErrorArrowBottom div{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none}.formError .formErrorArrow .line10{width:15px;border:0}.formError .formErrorArrow .line9{width:13px;border:0}.formError .formErrorArrow .line8{width:11px}.formError .formErrorArrow .line7{width:9px}.formError .formErrorArrow .line6{width:7px}.formError .formErrorArrow .line5{width:5px}.formError .formErrorArrow .line4{width:3px}.formError .formErrorArrow .line3{width:1px}.formError .formErrorArrow .line2{width:0}.formError .formErrorArrow .line1{width:0}.inputbox-error{border-bottom:1px solid #ff9000!important}

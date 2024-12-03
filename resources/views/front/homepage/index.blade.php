@@ -1709,11 +1709,7 @@
                         <!-- TITLE -->
                         <h5 class="header-1 mb-30px" data-aos="fade-up">Aktualności</h5>
                         <!-- PARAGRAPH -->
-                        <p
-                                class="paragraph text-pretty mb-3"
-                                data-aos="fade-up"
-                                data-aos-delay="200"
-                        >
+                        <p class="paragraph text-pretty mb-3" data-aos="fade-up" data-aos-delay="200">
                             Na bieżąco udostępniamy wszystkie informacje o aktualnych
                             pracach budowlanych. Każdy kolejny postęp przybliża nas do
                             upragnionego zakończenia, które dla przyszłych mieszkańców
@@ -1725,7 +1721,6 @@
 
                 <!-- GRID -->
                 <div class="row gy-4">
-
                     @foreach($articles as $index => $article)
                         @if($index % 3 == 0)
                             <div class="col-md-6 col-xl-4" data-aos="fade-right" data-aos-delay="600">
@@ -1746,24 +1741,13 @@
                                 <div class="date mb-2">{{ $article->posted_at }}</div>
                                 <span class="title mb-2">{{ $article->title }}</span>
                                 <!-- BUTTON -->
-                                <a class="btn btn-primary mb-2" href="{{ route('plan') }}">
+                                <a class="btn btn-primary mb-2" href="{{ route('news.show', $article->slug) }}">
                                     Czytaj więcej
-                                    <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
-                                        <g transform="translate(-339 -1753.9)" data-name="Group 816">
-                                            <g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20">
-                                                <ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/>
-                                                <ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/>
-                                            </g>
-                                            <g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right">
-                                                <path d="M0,5.764,5.764,0" data-name="Path 14793"/>
-                                                <path d="m0 0h5.764v5.764" data-name="Path 14794"/>
-                                            </g>
-                                        </g>
-                                    </svg>
+                                    <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-339 -1753.9)" data-name="Group 816"><g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20"><ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/><ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/></g><g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M0,5.764,5.764,0" data-name="Path 14793"/><path d="m0 0h5.764v5.764" data-name="Path 14794"/></g></g></svg>
                                 </a>
                             </div>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
-                            <a href="#" class="whole-box" aria-label="Link do aktualności"></a>
+                            <a href="{{ route('news.show', $article->slug) }}" class="whole-box" aria-label="Link do aktualności"></a>
                         </div>
                     </div>
                     @endforeach

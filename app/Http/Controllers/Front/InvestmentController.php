@@ -34,10 +34,22 @@ class InvestmentController extends Controller
         if ($request->input('rooms')) {
             $query->where('rooms', $request->input('rooms'));
         }
+
         if ($request->input('status')) {
             $query->where('status', $request->input('status'));
         }
 
+        if ($request->input('type')) {
+            $query->where('apartment_type', $request->input('type'));
+        }
+
+        if ($request->input('garden')) {
+            $query->whereNotNull('garden_area');
+        }
+
+        if ($request->input('balcony')) {
+            $query->whereNotNull('balcony_area');
+        }
 
         if ($request->has('floor')) {
             $floorNumber = $request->input('floor');
@@ -77,6 +89,17 @@ class InvestmentController extends Controller
             $query->where('status', $request->input('status'));
         }
 
+        if ($request->input('type')) {
+            $query->where('apartment_type', $request->input('type'));
+        }
+
+        if ($request->input('garden')) {
+            $query->whereNotNull('garden_area');
+        }
+
+        if ($request->input('balcony')) {
+            $query->whereNotNull('balcony_area');
+        }
 
         if ($request->has('floor')) {
             $floorNumber = $request->input('floor');

@@ -339,8 +339,9 @@ function handleCB() {
 
     chBoxes.forEach((checkbox) => {
         if (checkbox.checked) {
-            mySelectedListItems.push(checkbox.value);
-            mySelectedListItemsText += checkbox.value + ", ";
+            const dataTitle = checkbox.getAttribute("data-title");
+            mySelectedListItems.push(dataTitle);
+            mySelectedListItemsText += dataTitle + ", ";
         }
     });
 
@@ -350,10 +351,15 @@ function handleCB() {
             : "Udogodnienia";
 }
 
+// Add event listeners to checkboxes
 if (chBoxes && dpBtn) {
     chBoxes.forEach((checkbox) => {
         checkbox.addEventListener("change", handleCB);
     });
+
+    console.log("handleCB");
+
+    handleCB();
 }
 
 //

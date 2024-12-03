@@ -15,7 +15,7 @@
                         <img
                                 loading="lazy"
                                 class="img-fluid logo-footer"
-                                src="img/reusable/footer-logo.svg"
+                                src="{{ asset('images/reusable/footer-logo.svg') }}"
                                 width="320"
                                 height="188"
                                 alt="Logo Osiedle Targowe"

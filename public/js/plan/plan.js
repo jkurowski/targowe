@@ -9,10 +9,9 @@ function onWindowResize() {
 $(document).ready(function(){
     $('#invesmentplan').mapster({
         fillColor: '6e8373',
-        fillOpacity: 0.9,
+        fillOpacity: 0.6,
         clickNavigate: true
     });
-
     $('area[title]').each(function () {
         const elem = $(this), classAttr = $(this).attr('class');
         elem.qtip({
@@ -24,7 +23,11 @@ $(document).ready(function(){
                 adjust: {x:0, y: -10} ,
             },
             style: {classes: classAttr,tip: {corner: true,mimic: false,width: 12, height: 8,border: true,offset: 0}},
-            hide: {fixed: false, effect: false, show: false},
+            hide: {
+                fixed: false,
+                effect: false,
+                show: false
+            },
         });
     });
 });

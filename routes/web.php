@@ -49,6 +49,11 @@ Route::middleware(['restrictIp'])->group(function () {
             Route::post('/clipboard/send', 'Clipboard\IndexController@send')->name('clipboard.send');
             Route::get('/clipboard', 'Clipboard\IndexController@index')->name('clipboard.index');
             Route::delete('/clipboard', 'Clipboard\IndexController@destroy')->name('clipboard.destroy');
+
+            Route::group(['prefix' => 'aktualnosci', 'as' => 'news.'], function() {
+                Route::get('/',         'ArticleController@index')->name('index');
+                Route::get('/{slug}',   'ArticleController@show')->name('show');
+            });
         });
     });
 });

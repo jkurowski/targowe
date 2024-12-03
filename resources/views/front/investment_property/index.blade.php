@@ -180,9 +180,15 @@
                         <!-- TITLE -->
                         <h1 class="header-1 mb-30px" data-aos="fade-up">{{ $property->name }}</h1>
                         <!-- TAG -->
-                        <div class="apartment-ap-tag mb-4 bg-success" data-aos="fade-up" data-aos-delay="200">
-                            Status: {{ $property->status }}
-                        </div>
+                        @if($property->status == 1)
+                            <div class="apartment-ap-tag mb-4 bg-success" data-aos="fade-up" data-aos-delay="200">{{ roomStatus($property->status) }}</div>
+                        @endif
+                        @if($property->status == 2)
+                            <div class="apartment-ap-tag mb-4 bg-warning" data-aos="fade-up" data-aos-delay="200">{{ roomStatus($property->status) }}</div>
+                        @endif
+                        @if($property->status == 3)
+                            <div class="apartment-ap-tag mb-4 bg-danger" data-aos="fade-up" data-aos-delay="200">{{ roomStatus($property->status) }}</div>
+                        @endif
 
                         <!-- PARAGRAPH -->
                         <div class="mb-5 d-none">

@@ -84,7 +84,7 @@
                                                 <area
                                                         shape="poly"
                                                         href="{{route('floor', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name)])}}"
-                                                        title="<div class='qtip-floor'><h4>{{$floor->name}}</h4></div>"
+                                                        title="<h4 class=mb-0 text-center>{{$floor->name}}</h4>"
                                                         alt="floor-{{$int}}"
                                                         data-item="{{$floor->id}}"
                                                         data-slick="{{$int}}"
@@ -97,84 +97,45 @@
                                 <div class="title text-center fw-bold mt-3 mb-4">
                                     WYSZUKIWARKA
                                 </div>
-                                <form class="form">
+                                <form class="form" action="#roomlist" method="get">
                                     <div class="select-wrapper">
-                                        <select
-                                                name=""
-                                                id=""
-                                                class="form-select form-input"
-                                                aria-label="Pokoje"
-                                        >
-                                            <option selected="">Typ mieszkania</option>
-                                            <option value="1">typ 1</option>
-                                            <option value="2">typ 2</option>
-                                            <option value="3">typ 3</option>
-                                            <option value="4">typ 4</option>
+                                        <select name="type" id="" class="form-select form-input" aria-label="Pokoje">
+                                            <option value="">Typ mieszkania</option>
+                                            <option value="2" @if(request()->input('type') == 2) selected @endif>M2</option>
+                                            <option value="3" @if(request()->input('type') == 3) selected @endif>M3</option>
+                                            <option value="4" @if(request()->input('type') == 4) selected @endif>M4</option>
                                         </select>
                                     </div>
                                     <div class="select-wrapper">
-                                        <select
-                                                name=""
-                                                id=""
-                                                class="form-select form-input"
-                                                aria-label="Metraż"
-                                        >
-                                            <option selected="">Metraż</option>
-                                            <option value="1">1 Metraż</option>
-                                            <option value="2">2 Metraże</option>
-                                            <option value="3">3 Metraże</option>
-                                            <option value="4">4 Metraże</option>
+                                        <select name="area" id="" class="form-select form-input" aria-label="Metraż">
+                                            <option value="">Metraż</option>
+                                            <option value="40-50" @if(request()->input('area') == "40-50") selected @endif>40-50 m2</option>
+                                            <option value="51-60" @if(request()->input('area') == "51-60") selected @endif>51-60 m2</option>
+                                            <option value="61-75" @if(request()->input('area') == "61-75") selected @endif>61-75 m2</option>
                                         </select>
                                     </div>
                                     <div class="select-wrapper">
-                                        <select
-                                                name=""
-                                                id=""
-                                                class="form-select form-input"
-                                                aria-label="Piętro"
-                                        >
-                                            <option selected="">Piętro</option>
-                                            <option value="1">1 piętro</option>
-                                            <option value="2">2 piętro</option>
-                                            <option value="3">3 piętro</option>
-                                            <option value="4">4 piętro</option>
-                                            <option value="5">5 piętro</option>
+                                        <select name="floor" id="" class="form-select form-input" aria-label="Piętro">
+                                            <option value="">Piętro</option>
+                                            <option value="0" @if(request()->input('floor') == "0") selected @endif>Parter</option>
+                                            <option value="1" @if(request()->input('floor') == "1") selected @endif>1 piętro</option>
+                                            <option value="2" @if(request()->input('floor') == "2") selected @endif>2 piętro</option>
+                                            <option value="3" @if(request()->input('floor') == "3") selected @endif>3 piętro</option>
+                                            <option value="4" @if(request()->input('floor') == "4") selected @endif>4 piętro</option>
+                                            <option value="5" @if(request()->input('floor') == "5") selected @endif>5 piętro</option>
                                         </select>
                                     </div>
                                     <div class="select-wrapper">
-                                        <!-- To handle this dropdown change JS in main.js file -->
                                         <div class="dropdown dropdown-checkbox">
-                                            <button
-                                                    class="form-select form-input text-start"
-                                                    type="button"
-                                                    id="multiSelectDropdown"
-                                                    data-bs-toggle="dropdown"
-                                                    aria-expanded="false"
-                                            >
-                                                Udogodnienia
-                                            </button>
-                                            <ul
-                                                    class="dropdown-menu"
-                                                    aria-labelledby="multiSelectDropdown"
-                                                    style=""
-                                            >
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" value="Balkon" />
-                                                        Balkon
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <label>
-                                                        <input type="checkbox" value="Ogrod" />
-                                                        Ogród
-                                                    </label>
-                                                </li>
+                                            <button class="form-select form-input text-start" type="button" id="multiSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">Udogodnienia</button>
+                                            <ul class="dropdown-menu" aria-labelledby="multiSelectDropdown" style="">
+                                                <li><label><input type="checkbox" name="balcony" value="1" data-title="Balkon" @if(request()->input('balcony')) checked @endif />Balkon</label></li>
+                                                <li><label><input type="checkbox" name="garden" value="1" data-title="Ogród" @if(request()->input('garden')) checked @endif />Ogród</label></li>
                                             </ul>
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-primary" type="button">
+                                    <button class="btn btn-primary" type="submit">
                                         Szukaj
                                         <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -340,7 +301,7 @@
                         <!-- MAIN APARTMENTS COLS -->
                         <div class="row g-4" id="main-ap-axis">
                             <!-- 1 Apartment -->
-                            @foreach($properties as $p)
+                            @forelse($properties as $p)
                                 <div data-axis="row" class="col-12 d-flex justify-content-end main-ap-box-row">
                                     <!-- bg-success - dostępne -->
                                     <!-- bg-warning - rezerwacja -->
@@ -432,7 +393,9 @@
                                         <a href="{{route('property', [$investment->slug, $p->floor, 'floor_slug' => Str::slug($p->floor->name), $p, 'property_slug' => Str::slug($p->name) ])}}" class="whole-box z-0"></a>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <p class="text-center">Brak wyników. Zmień kryteria wyszukiwania i spróbuj ponownie.</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>
