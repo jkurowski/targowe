@@ -19,6 +19,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/glightbox.min.css') }}" />
     <link href="{{ asset('/css/slick.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/aos.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/leaflet.min.css') }}" rel="stylesheet">
@@ -42,9 +43,15 @@
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/aos.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/slick.min.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/glightbox.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/app.min.js') }}" charset="utf-8"></script>
 
 @stack('scripts')
-
+<script type="text/javascript">
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+    });
+</script>
 </body>
 </html>
