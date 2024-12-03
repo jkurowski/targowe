@@ -15933,8 +15933,8 @@ p {
 '3' => 'Sprzedane',
 '4' => 'Wynajęte'
 */
-.qtip.status-1 .qtip-content {background:#1ebf00;border:1px solid #1ebf00}
-.qtip.status-1 .qtip-content canvas {background:#1ebf00}
+.qtip.status-1 .qtip-content {background:#3a9019;border:1px solid #3a9019}
+.qtip.status-1 .qtip-content canvas {background:#3a9019}
 .qtip.status-2 .qtip-content {background:#ffcb00;border:1px solid #ffcb00;color:black !important;}
 .qtip.status-2 .qtip-content h4 {color:black !important;}
 .qtip.status-2 .qtip-content canvas {background:#ffcb00;color:black}
