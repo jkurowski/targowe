@@ -30,32 +30,32 @@
                 <p class="footer-title pb-4 mb-0">Menu</p>
                 <ul class="list-unstyled">
                     <li class="pb-4">
-                        <a class="footer-link" href="deweloper.html"
+                        <a class="footer-link" href="{{ route('static.deweloper') }}"
                         ><span>Deweloper</span></a
                         >
                     </li>
                     <li class="pb-4">
-                        <a class="footer-link" href="o-inwestycji.html"
+                        <a class="footer-link" href="{{ route('about') }}"
                         ><span>O Inwestycji</span></a
                         >
                     </li>
                     <li class="pb-4">
-                        <a class="footer-link" href="mieszkania.html"
+                        <a class="footer-link" href="{{ route('plan') }}"
                         ><span>Mieszkania</span></a
                         >
                     </li>
                     <li class="pb-4">
-                        <a class="footer-link" href="galeria.html"
+                        <a class="footer-link" href="{{ route('gallery') }}"
                         ><span>Galeria</span></a
                         >
                     </li>
                     <li class="pb-4">
-                        <a class="footer-link" href="udogodnienia.html"
+                        <a class="footer-link" href="{{ route('static.udogodnienia') }}"
                         ><span>Udogodnienia</span></a
                         >
                     </li>
                     <li class="pb-md-4">
-                        <a class="footer-link" href="kontakt.html"
+                        <a class="footer-link" href="{{ route('contact.index') }}"
                         ><span>Kontakt</span></a
                         >
                     </li>

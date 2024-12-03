@@ -65,7 +65,7 @@
                                 <!-- BUTTON -->
                                 <a
                                         class="btn btn-primary mt-3 mt-lg-5 mb-3 mb-lg-4"
-                                        href="mieszkania.html"
+                                        href="{{ route('plan') }}"
                                         data-aos="fade-up"
                                         data-aos-delay="300"
                                 >
