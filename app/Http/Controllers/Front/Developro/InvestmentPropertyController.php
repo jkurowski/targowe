@@ -32,13 +32,23 @@ class InvestmentPropertyController extends Controller
         $next = $property->findNext($floor->id, 1, $investment->id, $property->number_order);
         $prev = $property->findPrev($floor->id, 1, $investment->id, $property->number_order);
 
+        $similar = Property::select('properties.*', 'floors.number as floor_number')
+            ->where('properties.type', $property->type)
+            ->where('properties.id', '<>', $property->id)
+            //->where('properties.investment_id', '!=', 7)
+            ->join('floors', 'properties.floor_id', '=', 'floors.id')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+
         return view('front.investment_property.index', [
             'investment' => $investment,
             'floor' => $floor,
             'property' => $property,
             'next' => $next,
             'prev' => $prev,
-            'page' => $page
+            'page' => $page,
+            'similar' => $similar
         ]);
     }
 }
