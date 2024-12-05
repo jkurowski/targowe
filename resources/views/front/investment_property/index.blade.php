@@ -1189,7 +1189,7 @@
         <!-- ---------- -->
         <!-- SLIDER  ||  Nasza okolica -->
         <!-- ---------- -->
-        <section class="margin-sm d-none">
+        <section class="margin-sm">
             <div class="container">
                 <div class="row row-gap-4 row-gap-lg-5 position-relative">
                     <div class="row-tag">
@@ -1202,15 +1202,7 @@
                             Podobne mieszkania
                         </h3>
                         <!-- PARAGRAPH -->
-                        <p
-                                class="paragraph text-pretty mb-30px text"
-                                data-aos="fade-up"
-                                data-aos-delay="200"
-                        >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                            diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                            aliquyam erat, sed diam voluptua.
-                        </p>
+                        <p class="paragraph text-pretty mb-30px text" data-aos="fade-up" data-aos-delay="200">Jeśli zainteresował Cię ten układ, zobacz inne mieszkania, które mogą spełnić Twoje oczekiwania! Znajdziesz tu lokale o zbliżonym metrażu, rozkładzie i liczbie pomieszczeń. Dzięki temu łatwiej porównasz dostępne opcje i wybierzesz idealne miejsce dla siebie.</p>
                     </div>
                     <!-- SLIDER -->
                     <div class="col-12 offset-lg-1 col-lg-7 position-relative">

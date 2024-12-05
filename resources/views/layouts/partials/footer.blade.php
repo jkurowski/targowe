@@ -76,7 +76,7 @@
                             <li class="pb-3">
                                 <a
                                         class="nav-link"
-                                        href="mailto:mieszkanie@wgwstalbet.eu"
+                                        href="mailto:mieszkania@wgwstalbet.eu"
                                         aria-label="skontaktuj się z nami"
                                 >
                                     <svg
@@ -94,7 +94,7 @@
                                                 fill="currentColor"
                                         />
                                     </svg>
-                                    mieszkanie@wgwstalbet.eu</a
+                                    mieszkania@wgwstalbet.eu</a
                                 >
                             </li>
                             <li class="pb-3">

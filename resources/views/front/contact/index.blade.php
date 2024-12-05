@@ -42,7 +42,7 @@
                                 </div>
                                 <span class="info">696 162 406</span>
                             </a>
-                            <a href="mailto:mieszkanie@wgwstalbet.eu" class="box">
+                            <a href="mailto:mieszkania@wgwstalbet.eu" class="box">
                                 <div class="icon">
                                     <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@
                                         />
                                     </svg>
                                 </div>
-                                <span class="info">mieszkanie@wgwstalbet.eu</span>
+                                <span class="info">mieszkania@wgwstalbet.eu</span>
                             </a>
                             <div class="box">
                                 <div class="icon">
