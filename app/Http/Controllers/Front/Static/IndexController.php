@@ -19,4 +19,10 @@ class IndexController extends Controller
         $page = Page::find(7);
         return view('front.static.deweloper', compact('page'));
     }
+
+    public function privacy()
+    {
+        $page = Page::find(5);
+        return view('front.static.privacy', compact('page'));
+    }
 }

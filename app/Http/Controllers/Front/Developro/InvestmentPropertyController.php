@@ -29,12 +29,15 @@ class InvestmentPropertyController extends Controller
         $property->timestamps = false;
         $property->increment('views');
 
+        $next = $property->findNext($floor->id, 1, $investment->id, $property->number_order);
+        $prev = $property->findPrev($floor->id, 1, $investment->id, $property->number_order);
+
         return view('front.investment_property.index', [
             'investment' => $investment,
             'floor' => $floor,
             'property' => $property,
-            'next' => $property->findNext($floor->id, 1, $investment->id, $property->number_order),
-            'prev' => $property->findPrev($floor->id, 1, $investment->id, $property->number_order),
+            'next' => $next,
+            'prev' => $prev,
             'page' => $page
         ]);
     }

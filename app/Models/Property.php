@@ -67,7 +67,7 @@ class Property extends Model
         $query = self::where('investment_id', $investment)
             ->orderBy('number_order', 'ASC')
             ->where('number_order', '>', $number_order)
-            ->select(['number_order', 'id', 'investment_id', 'floor_id']);
+            ->select(['number_order', 'id', 'investment_id', 'floor_id', 'name']);
         if ($floor_id) {
             $query->where('floor_id', $floor_id);
         }
@@ -91,7 +91,7 @@ class Property extends Model
         $query = self::where('investment_id', $investment)
             ->orderBy('number_order', 'DESC')
             ->where('number_order', '<', $number_order)
-            ->select(['number_order', 'id', 'investment_id', 'floor_id']);
+            ->select(['number_order', 'id', 'investment_id', 'floor_id', 'name']);
         if ($floor_id) {
             $query->where('floor_id', $floor_id);
         }

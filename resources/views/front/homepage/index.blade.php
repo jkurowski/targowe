@@ -1124,126 +1124,28 @@
                 <!-- GRID -->
                 <div class="row gy-4">
                     <!-- 1st Apartment -->
-                    <div
-                            class="col-md-6 col-xl-4"
-                            data-aos="fade-right"
-                            data-aos-delay="600"
-                    >
+                    <div class="col-md-6 col-xl-4" data-aos="fade-right" data-aos-delay="600">
                         <!-- A TAG MAKING BOX A LINK IS INSIDE -->
                         <div class="ap-box">
-                            <a
-                                    href="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                    class="glightbox image mb-4"
-                                    data-gallery="apartment"
-                            >
-                                <picture>
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.webp') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.webp') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <img
-                                            src="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            width="551"
-                                            height="281"
-                                            class="img-fluid"
-                                            loading="lazy"
-                                            alt="Rysunek architektoniczny mieszkania"
-                                    />
-                                </picture>
-                            </a>
+                            <picture>
+                                  <img
+                                        src="{{ asset('images/m2.jpg') }}"
+                                        width="255"
+                                        height="255"
+                                        class="img-fluid"
+                                        loading="lazy"
+                                        alt="Rysunek architektoniczny mieszkania M2"
+                                />
+                            </picture>
                             <div class="title">Mieszkanie <span>M2</span></div>
-                            <div class="mb-4">
-                                idealne dla singli i par, <br />
-                                o powierzchni - 45,4m<sup>2</sup>
-                            </div>
+                            <div class="mb-4">idealne dla singli i par, <br />o powierzchni - 45,4m<sup>2</sup></div>
                             <!-- BUTTON -->
-                            <a class="btn btn-primary z-1" href="{{ route('plan') }}">
+                            <a class="btn btn-primary z-1" href="{{ route('plan') }}?type=2#roomlist">
                                 Sprawdź mieszkanie
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="19.971"
-                                        height="19.971"
-                                        viewBox="0 0 19.971 19.971"
-                                >
-                                    <g
-                                            id="Group_816"
-                                            data-name="Group 816"
-                                            transform="translate(-339 -1753.929)"
-                                    >
-                                        <g
-                                                id="Ellipse_20"
-                                                data-name="Ellipse 20"
-                                                transform="translate(358.971 1753.929) rotate(90)"
-                                                fill="#345e3e"
-                                                stroke="#345e3e"
-                                                stroke-width="1"
-                                        >
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.985"
-                                                    ry="9.985"
-                                                    stroke="none"
-                                            />
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.485"
-                                                    ry="9.485"
-                                                    fill="none"
-                                            />
-                                        </g>
-                                        <g
-                                                id="Icon_feather-arrow-up-right"
-                                                data-name="Icon feather-arrow-up-right"
-                                                transform="translate(348.985 1759.839) rotate(45)"
-                                        >
-                                            <path
-                                                    id="Path_14793"
-                                                    data-name="Path 14793"
-                                                    d="M0,5.764,5.764,0"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                            <path
-                                                    id="Path_14794"
-                                                    data-name="Path 14794"
-                                                    d="M0,0H5.764V5.764"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                        </g>
-                                    </g>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.971 19.971"><g data-name="Group 816"><g fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20" transform="rotate(90 9.986 9.985)"><circle cx="9.985" cy="9.985" r="9.985" stroke="none"/><circle cx="9.985" cy="9.985" r="9.485" fill="none"/></g><g fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M5.91 9.986h8.151" data-name="Path 14793"/><path d="m9.985 5.91 4.076 4.076-4.076 4.076" data-name="Path 14794"/></g></g></svg>
                             </a>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX --->
-                            <a
-                                    href="{{ route('plan') }}"
-                                    class="whole-box"
-                                    aria-label="Link do mieszkania"
-                            ></a>
+                            <a href="{{ route('plan') }}?type=2#roomlist" class="whole-box" aria-label="Link do mieszkania"></a>
                         </div>
                     </div>
                     <!-- 2nd Apartment -->
@@ -1251,42 +1153,16 @@
                         <!-- A TAG MAKING BOX A LINK IS INSIDE -->
 
                         <div class="ap-box">
-                            <a
-                                    href="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                    class="glightbox image mb-4"
-                                    data-gallery="apartment"
-                            >
-                                <picture>
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.webp') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.webp') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <img
-                                            src="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            width="551"
-                                            height="281"
-                                            class="img-fluid"
-                                            loading="lazy"
-                                            alt="Rysunek architektoniczny mieszkania"
-                                    />
-                                </picture>
-                            </a>
+                            <picture>
+                                <img
+                                        src="{{ asset('images/m3.jpg') }}"
+                                        width="255"
+                                        height="255"
+                                        class="img-fluid"
+                                        loading="lazy"
+                                        alt="Rysunek architektoniczny mieszkania M3"
+                                />
+                            </picture>
                             <div class="title">Mieszkanie <span>M3</span></div>
                             <div class="mb-4">
                                 komfortowe mieszkania dla<br />
@@ -1294,74 +1170,13 @@
                                 o powierzchni – od 57,8m<sup>2</sup>
                             </div>
                             <!-- BUTTON -->
-                            <a class="btn btn-primary z-1" href="{{ route('plan') }}">
+                            <a class="btn btn-primary z-1" href="{{ route('plan') }}?type=3#roomlist">
                                 Sprawdź mieszkanie
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="19.971"
-                                        height="19.971"
-                                        viewBox="0 0 19.971 19.971"
-                                >
-                                    <g
-                                            id="Group_816"
-                                            data-name="Group 816"
-                                            transform="translate(-339 -1753.929)"
-                                    >
-                                        <g
-                                                id="Ellipse_20"
-                                                data-name="Ellipse 20"
-                                                transform="translate(358.971 1753.929) rotate(90)"
-                                                fill="#345e3e"
-                                                stroke="#345e3e"
-                                                stroke-width="1"
-                                        >
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.985"
-                                                    ry="9.985"
-                                                    stroke="none"
-                                            />
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.485"
-                                                    ry="9.485"
-                                                    fill="none"
-                                            />
-                                        </g>
-                                        <g
-                                                id="Icon_feather-arrow-up-right"
-                                                data-name="Icon feather-arrow-up-right"
-                                                transform="translate(348.985 1759.839) rotate(45)"
-                                        >
-                                            <path
-                                                    id="Path_14793"
-                                                    data-name="Path 14793"
-                                                    d="M0,5.764,5.764,0"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                            <path
-                                                    id="Path_14794"
-                                                    data-name="Path 14794"
-                                                    d="M0,0H5.764V5.764"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                        </g>
-                                    </g>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.971 19.971"><g data-name="Group 816"><g fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20" transform="rotate(90 9.986 9.985)"><circle cx="9.985" cy="9.985" r="9.985" stroke="none"/><circle cx="9.985" cy="9.985" r="9.485" fill="none"/></g><g fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M5.91 9.986h8.151" data-name="Path 14793"/><path d="m9.985 5.91 4.076 4.076-4.076 4.076" data-name="Path 14794"/></g></g></svg>
                             </a>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
                             <a
-                                    href="{{ route('plan') }}"
+                                    href="{{ route('plan') }}?type=3#roomlist"
                                     class="whole-box"
                                     aria-label="Link do mieszkania"
                             ></a>
@@ -1376,42 +1191,16 @@
                         <!-- A TAG MAKING BOX A LINK IS INSIDE -->
 
                         <div class="ap-box">
-                            <a
-                                    href="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                    class="glightbox image mb-4"
-                                    data-gallery="apartment"
-                            >
-                                <picture>
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.webp') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.webp') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/webp') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            media="(max-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <source
-                                            srcset="{{ asset('images/reusable-imgs/draw@2x.png') }}"
-                                            media="(min-width: 992px)"
-                                            type="image/png') }}"
-                                    />
-                                    <img
-                                            src="{{ asset('images/reusable-imgs/draw.png') }}"
-                                            width="551"
-                                            height="281"
-                                            class="img-fluid"
-                                            loading="lazy"
-                                            alt="Rysunek architektoniczny mieszkania"
-                                    />
-                                </picture>
-                            </a>
+                            <picture>
+                                <img
+                                        src="{{ asset('images/m4.jpg') }}"
+                                        width="255"
+                                        height="255"
+                                        class="img-fluid"
+                                        loading="lazy"
+                                        alt="Rysunek architektoniczny mieszkania M4"
+                                />
+                            </picture>
                             <div class="title">Mieszkanie <span>M4</span></div>
                             <div class="mb-4">
                                 przestronne mieszkania dla<br />
@@ -1419,74 +1208,13 @@
                                 o powierzchni - do 73,0m<sup>2</sup>
                             </div>
                             <!-- BUTTON -->
-                            <a class="btn btn-primary z-1" href="{{ route('plan') }}">
+                            <a class="btn btn-primary z-1" href="{{ route('plan') }}?type=4#roomlist">
                                 Sprawdź mieszkanie
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="19.971"
-                                        height="19.971"
-                                        viewBox="0 0 19.971 19.971"
-                                >
-                                    <g
-                                            id="Group_816"
-                                            data-name="Group 816"
-                                            transform="translate(-339 -1753.929)"
-                                    >
-                                        <g
-                                                id="Ellipse_20"
-                                                data-name="Ellipse 20"
-                                                transform="translate(358.971 1753.929) rotate(90)"
-                                                fill="#345e3e"
-                                                stroke="#345e3e"
-                                                stroke-width="1"
-                                        >
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.985"
-                                                    ry="9.985"
-                                                    stroke="none"
-                                            />
-                                            <ellipse
-                                                    cx="9.985"
-                                                    cy="9.985"
-                                                    rx="9.485"
-                                                    ry="9.485"
-                                                    fill="none"
-                                            />
-                                        </g>
-                                        <g
-                                                id="Icon_feather-arrow-up-right"
-                                                data-name="Icon feather-arrow-up-right"
-                                                transform="translate(348.985 1759.839) rotate(45)"
-                                        >
-                                            <path
-                                                    id="Path_14793"
-                                                    data-name="Path 14793"
-                                                    d="M0,5.764,5.764,0"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                            <path
-                                                    id="Path_14794"
-                                                    data-name="Path 14794"
-                                                    d="M0,0H5.764V5.764"
-                                                    fill="none"
-                                                    stroke="#fffbf5"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="1"
-                                            />
-                                        </g>
-                                    </g>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.971 19.971"><g data-name="Group 816"><g fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20" transform="rotate(90 9.986 9.985)"><circle cx="9.985" cy="9.985" r="9.985" stroke="none"/><circle cx="9.985" cy="9.985" r="9.485" fill="none"/></g><g fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M5.91 9.986h8.151" data-name="Path 14793"/><path d="m9.985 5.91 4.076 4.076-4.076 4.076" data-name="Path 14794"/></g></g></svg>
                             </a>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
                             <a
-                                    href="{{ route('plan') }}"
+                                    href="{{ route('plan') }}?type=4#roomlist"
                                     class="whole-box"
                                     aria-label="Link do mieszkania"
                             ></a>

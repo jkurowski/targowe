@@ -61,13 +61,56 @@
                 </h2>
                 <div id="policy-check" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        [ Obowiązek ]
+                        <ol>
+                            <li>Administratorem Twoich danych osobowych jest WGW DEVELOPMENT GROUP SP. z o.o. z/s w Łasku przy ul. Warszawskiej 79, adres e-mail: mieszkania@wgwstalbet.eu.</li>
+                            <li>Dane osobowe są przetwarzane na podstawie art. 6 ust. 1 lit „a”, „b” rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z 27 kwietnia 2016 roku w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych […], zwane dalej RODO.</li>
+                            <li>Zgoda jest dobrowolna, ale brak zgody uniemożliwia nam kontakt oraz wykonanie umowy.</li>
+                            <li>Zgoda obejmuje przetwarzanie imienia, nazwiska, numeru telefonu, adresu e-mail..</li>
+                            <li>Celem przetwarzania danych jest nawiązanie kontaktu oraz obowiązków wynikających z przepisów obowiązującego prawa.</li>
+                            <li>Dane nie będą przetwarzane w innym celu z wyjątkiem sytuacji, kiedy wymagają tego przepisy obowiązującego prawa Unii Europejskiej, Polski, bądź innego państwa członkowskiego, którego prawu podlega Administrator, bądź podmiot przetwarzający dane.</li>
+                            <li>Do danych osobowych ma dostęp Administrator, podmioty przetwarzające dane na polecenie Administratora oraz osoby działające z upoważnienia Administratora lub podmiotu przetwarzającego, a także w przypadku zaistnienia podstaw prawnych ku temu – sądy i organy ochrony prawnej.</li>
+                            <li>Twoje dane osobowe będą przekazywane stosownym organom ochrony prawnej, osobom działającym na podstawie umowy z Administratorem, bądź osobom upoważnionym.</li>
+                            <li>Twoje dane osobowe zostaną usunięte niezwłocznie, gdy staną się zbędne do celów, w jakich zostały zgromadzone, bądź niezwłocznie po otrzymaniu żądania, bądź też po upływie terminów przedawnienia ewentualnych roszczeń.</li>
+                            <li>Dane nie będą podlegać zautomatyzowanemu podejmowaniu decyzji, w tym profilowaniu.</li>
+                            <li>Przysługuje Ci prawo dostępu, sprostowania, uzupełnienia, przenoszenia, ograniczenia przetwarzania, usunięcia swoich danych osobowych.</li>
+                            <li>Jeśli dane osobowe są przetwarzane na podstawie udzielonej zgody może ona zostać cofnięta w każdym momencie. Cofnięcie zgody pozostaje bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</li>
+                            <li>W ramach przetwarzania dane osobowe nie będą podlegać zautomatyzowanemu podejmowaniu decyzji, w tym profilowaniu.</li>
+                            <li>Przysługuje Ci prawo do wniesienia w dowolnym momencie sprzeciwu do Administratora wobec przetwarzania swoich danych osobowych, jeśli jest to uzasadnione Twoją szczególną sytuacją, zaś dane były przetwarzane do celów wynikających z prawnie uzasadnionych interesów realizowanych przez Administratora lub przez stronę trzecią lub dane były profilowane. Możesz również sprzeciwić się przetwarzaniu swoich danych na potrzeby marketingu bezpośredniego.</li>
+                            <li>Przysługuje Ci również prawo do złożenia skargi do organu nadzoru, którym jest Prezes Urzędu Ochrony Danych Osobowych.</li>
+                        </ol>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-12">
+        <!-- POLICY -->
+        <div class="form-check text-start pt-5 d-flex gap-3">
+            <input class="form-check-input" type="checkbox" value="" id="terms-check" name="terms"/>
+            <label class="form-check-label small fw-medium pt-1" for="terms-check">
+                Zapoznałem/łam się z
+                <a href="/pl/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">polityką prywatności</a>*
+            </label>
+        </div>
+        <!-- DATA -->
+        <div class="form-check text-start pt-2 d-flex gap-3">
+            <input class="form-check-input" type="checkbox" value="" id="terms-check-2" name="terms"/>
+            <label class="form-check-label small fw-medium pt-1" for="terms-check-2">
+                Zgadzam się na przetwarzanie moich danych osobowych
+                przez Administratora i osoby działające z jego
+                upoważnienia i podmioty przetwarzające dane na
+                podstawie umowy zawartej z Administratorem - w celu:
+                nawiązania kontaktu oraz wykonania obowiązków
+                wynikających z przepisów obowiązującego prawa.
+                Zgadzam się na przekazywanie moich danych osobowych
+                w postaci: imienia, nazwiska, adresu e-mail, numeru
+                telefonu organom ochrony prawnej, osobom
+                upoważnionym lub działającym na podstawie umowy z
+                Administratorem.*
+            </label>
+        </div>
+    </div>
+    <div class="col-12 d-none">
         @foreach ($rules as $r)
             <div class="form-check text-start pt-2 d-flex gap-3">
                 <input class="form-check-input @if($r->required === 1)validate[required] @endif" type="checkbox" value="1" id="zgoda_{{$r->id}}" name="rule_{{$r->id}}" data-prompt-position="topLeft:0"/>

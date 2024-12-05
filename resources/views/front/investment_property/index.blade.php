@@ -44,128 +44,20 @@
             <div class="container mb-5">
                 <div class="row">
                     <div class="col-6">
-                        <a href="#" class="floor-link">
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="33.142"
-                                    height="33.142"
-                                    viewBox="0 0 33.142 33.142"
-                            >
-                                <g
-                                        id="Group_979"
-                                        data-name="Group 979"
-                                        transform="translate(-741 -1177)"
-                                >
-                                    <g
-                                            id="Ellipse_19"
-                                            data-name="Ellipse 19"
-                                            transform="translate(741 1210.142) rotate(-90)"
-                                            fill="none"
-                                            stroke="#345e3e"
-                                            stroke-width="1"
-                                    >
-                                        <circle
-                                                cx="16.571"
-                                                cy="16.571"
-                                                r="16.571"
-                                                stroke="none"
-                                        />
-                                        <circle cx="16.571" cy="16.571" r="16.071" fill="none" />
-                                    </g>
-                                    <g
-                                            id="Icon_feather-arrow-up-right"
-                                            data-name="Icon feather-arrow-up-right"
-                                            transform="translate(757.558 1199.117) rotate(-135)"
-                                    >
-                                        <path
-                                                id="Path_14793"
-                                                data-name="Path 14793"
-                                                d="M10.5,18.361,18.361,10.5"
-                                                transform="translate(-10.5 -10.5)"
-                                                fill="none"
-                                                stroke="#345e3e"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="1"
-                                        />
-                                        <path
-                                                id="Path_14794"
-                                                data-name="Path 14794"
-                                                d="M10.5,10.5h7.861v7.861"
-                                                transform="translate(-10.5 -10.5)"
-                                                fill="none"
-                                                stroke="#345e3e"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="1"
-                                        />
-                                    </g>
-                                </g>
-                            </svg>
+                        @if($prev)
+                        <a href="{{route('property', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name), $prev, 'property_slug' => Str::slug($prev->name) ])}}" class="floor-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.14 33.14"><g data-name="Group 979" transform="translate(-741 -1177)" fill="none" stroke="#345e3e"><g data-name="Ellipse 19" transform="rotate(-90 975.57 234.57)"><circle cx="16.57" cy="16.57" r="16.57" stroke="none"/><circle cx="16.57" cy="16.57" r="16.07"/></g><g data-name="Icon feather-arrow-up-right" transform="rotate(-135 627.12 442.66)" stroke-linecap="round" stroke-linejoin="round"><path data-name="Path 14793" d="M0 7.86 7.86 0"/><path data-name="Path 14794" d="M0 0h7.86v7.86"/></g></g></svg>
                             <div class="floor-link-name">poprzednie</div>
                         </a>
+                        @endif
                     </div>
                     <div class="col-6 d-flex justify-content-end">
-                        <a href="#" class="floor-link">
+                        @if($next)
+                        <a href="{{route('property', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name), $next, 'property_slug' => Str::slug($next->name) ])}}" class="floor-link">
                             <div class="floor-link-name">następne</div>
-                            <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="33.142"
-                                    height="33.142"
-                                    viewBox="0 0 33.142 33.142"
-                            >
-                                <g
-                                        id="Group_837"
-                                        data-name="Group 837"
-                                        transform="translate(804.071 5666.385) rotate(-180)"
-                                >
-                                    <g
-                                            id="Ellipse_19"
-                                            data-name="Ellipse 19"
-                                            transform="translate(770.929 5666.385) rotate(-90)"
-                                            fill="none"
-                                            stroke="#345e3e"
-                                            stroke-width="1"
-                                    >
-                                        <circle
-                                                cx="16.571"
-                                                cy="16.571"
-                                                r="16.571"
-                                                stroke="none"
-                                        />
-                                        <circle cx="16.571" cy="16.571" r="16.071" fill="none" />
-                                    </g>
-                                    <g
-                                            id="Icon_feather-arrow-up-right"
-                                            data-name="Icon feather-arrow-up-right"
-                                            transform="translate(787.487 5655.359) rotate(-135)"
-                                    >
-                                        <path
-                                                id="Path_14793"
-                                                data-name="Path 14793"
-                                                d="M10.5,18.361,18.361,10.5"
-                                                transform="translate(-10.5 -10.5)"
-                                                fill="none"
-                                                stroke="#345e3e"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="1"
-                                        />
-                                        <path
-                                                id="Path_14794"
-                                                data-name="Path 14794"
-                                                d="M10.5,10.5h7.861v7.861"
-                                                transform="translate(-10.5 -10.5)"
-                                                fill="none"
-                                                stroke="#345e3e"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="1"
-                                        />
-                                    </g>
-                                </g>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33.142" height="33.142" viewBox="0 0 33.142 33.142"><g fill="none" stroke="#345e3e" data-name="Group 837"><g data-name="Ellipse 19" transform="rotate(90 16.571 16.572)"><circle cx="16.571" cy="16.571" r="16.571" stroke="none"/><circle cx="16.571" cy="16.571" r="16.071"/></g><g stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M11.026 16.585h11.117" data-name="Path 14793"/><path d="m16.585 11.026 5.558 5.559-5.558 5.558" data-name="Path 14794"/></g></g></svg>
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -1160,121 +1052,26 @@
                                             <div class="accordion" id="accordionExample">
                                                 <div class="accordion-item">
                                                     <h2 class="accordion-header">
-                                                        <button
-                                                                class="accordion-button accordion-button-contact"
-                                                                type="button"
-                                                                data-bs-toggle="collapse"
-                                                                data-bs-target="#policy-check"
-                                                                aria-expanded="true"
-                                                                aria-controls="policy-check"
-                                                        >
-                                                            Klauzula informacyjna
-                                                        </button>
+                                                        <button class="accordion-button accordion-button-contact" type="button" data-bs-toggle="collapse" data-bs-target="#policy-check" aria-expanded="true" aria-controls="policy-check">Klauzula informacyjna</button>
                                                     </h2>
-                                                    <div
-                                                            id="policy-check"
-                                                            class="accordion-collapse collapse"
-                                                            data-bs-parent="#accordionExample"
-                                                    >
+                                                    <div id="policy-check" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                             <ol>
-                                                                <li>
-                                                                    Administrator danych osobowych: WGW
-                                                                    DEVELOPMENT GROUP SP. z o.o. z siedzibą w
-                                                                    Łasku przy ul. Warszawskiej 79.
-                                                                    <br />
-                                                                    Adres e-mail: mieszkania@wgwstalbet.eu.
-                                                                </li>
-                                                                <li>
-                                                                    Podstawa prawna przetwarzania danych: Dane
-                                                                    osobowe są przetwarzane na podstawie art. 6
-                                                                    ust. 1 lit „a”, „b” rozporządzenia
-                                                                    Parlamentu Europejskiego i Rady (UE)
-                                                                    2016/679 (RODO).
-                                                                </li>
-                                                                <li>
-                                                                    Dobrowolność zgody: Zgoda jest dobrowolna,
-                                                                    ale brak jej udzielenia uniemożliwia kontakt
-                                                                    oraz wykonanie umowy.
-                                                                </li>
-                                                                <li>
-                                                                    Zakres przetwarzanych danych: Przetwarzane
-                                                                    dane obejmują: imię, nazwisko, numer
-                                                                    telefonu, adres e-mail.
-                                                                </li>
-                                                                <li>
-                                                                    Cel przetwarzania danych: Celem
-                                                                    przetwarzania danych jest nawiązanie
-                                                                    kontaktu oraz realizacja obowiązków
-                                                                    wynikających z przepisów obowiązującego
-                                                                    prawa.
-                                                                </li>
-                                                                <li>
-                                                                    Zakres wykorzystania danych: Dane nie będą
-                                                                    przetwarzane w innym celu, chyba że wymagają
-                                                                    tego przepisy prawa UE, Polski lub innego
-                                                                    państwa członkowskiego, którego prawu
-                                                                    podlega Administrator.
-                                                                </li>
-                                                                <li>
-                                                                    Dostęp do danych osobowych: Do danych mają
-                                                                    dostęp: Administrator, podmioty
-                                                                    przetwarzające dane na zlecenie
-                                                                    Administratora, osoby działające z
-                                                                    upoważnienia Administratora lub podmiotu
-                                                                    przetwarzającego, a także sądy i organy
-                                                                    ochrony prawnej, jeśli istnieją ku temu
-                                                                    podstawy prawne.
-                                                                </li>
-                                                                <li>
-                                                                    Przekazywanie danych: Dane osobowe będą
-                                                                    przekazywane stosownym organom ochrony
-                                                                    prawnej, osobom działającym na podstawie
-                                                                    umowy z Administratorem, bądź osobom
-                                                                    upoważnionym.
-                                                                </li>
-                                                                <li>
-                                                                    Usunięcie danych: Dane zostaną usunięte
-                                                                    niezwłocznie po tym, jak staną się zbędne do
-                                                                    celów, w jakich zostały zgromadzone, po
-                                                                    otrzymaniu żądania ich usunięcia, lub po
-                                                                    upływie terminów przedawnienia ewentualnych
-                                                                    roszczeń.
-                                                                </li>
-                                                                <li>
-                                                                    Brak zautomatyzowanego przetwarzania: Dane
-                                                                    nie będą podlegać zautomatyzowanemu
-                                                                    podejmowaniu decyzji, w tym profilowaniu.
-                                                                </li>
-                                                                <li>
-                                                                    Prawa osób, których dane dotyczą: Masz prawo
-                                                                    do: dostępu, sprostowania, uzupełnienia,
-                                                                    przenoszenia, ograniczenia przetwarzania
-                                                                    oraz usunięcia swoich danych osobowych.
-                                                                </li>
-                                                                <li>
-                                                                    Cofnięcie zgody: Zgoda na przetwarzanie
-                                                                    danych osobowych może zostać cofnięta w
-                                                                    dowolnym momencie, bez wpływu na zgodność z
-                                                                    prawem przetwarzania, którego dokonano na
-                                                                    podstawie zgody przed jej cofnięciem.
-                                                                </li>
-                                                                <li>
-                                                                    Prawo do sprzeciwu: Możesz wnieść sprzeciw
-                                                                    wobec przetwarzania danych z powodów
-                                                                    związanych z Twoją szczególną sytuacją,
-                                                                    jeśli dane były przetwarzane na podstawie
-                                                                    prawnie uzasadnionych interesów
-                                                                    Administratora lub strony trzeciej, albo
-                                                                    były profilowane. Masz również prawo do
-                                                                    sprzeciwu wobec przetwarzania danych na
-                                                                    potrzeby marketingu bezpośredniego.
-                                                                </li>
-                                                                <li>
-                                                                    Prawo do skargi: Masz prawo złożyć skargę do
-                                                                    organu nadzoru, którym jest Prezes Urzędu
-                                                                    Ochrony Danych Osobowych.
-                                                                </li>
+                                                                <li>Administratorem Twoich danych osobowych jest WGW DEVELOPMENT GROUP SP. z o.o. z/s w Łasku przy ul. Warszawskiej 79, adres e-mail: mieszkania@wgwstalbet.eu.</li>
+                                                                <li>Dane osobowe są przetwarzane na podstawie art. 6 ust. 1 lit „a”, „b” rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z 27 kwietnia 2016 roku w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych […], zwane dalej RODO.</li>
+                                                                <li>Zgoda jest dobrowolna, ale brak zgody uniemożliwia nam kontakt oraz wykonanie umowy.</li>
+                                                                <li>Zgoda obejmuje przetwarzanie imienia, nazwiska, numeru telefonu, adresu e-mail..</li>
+                                                                <li>Celem przetwarzania danych jest nawiązanie kontaktu oraz obowiązków wynikających z przepisów obowiązującego prawa.</li>
+                                                                <li>Dane nie będą przetwarzane w innym celu z wyjątkiem sytuacji, kiedy wymagają tego przepisy obowiązującego prawa Unii Europejskiej, Polski, bądź innego państwa członkowskiego, którego prawu podlega Administrator, bądź podmiot przetwarzający dane.</li>
+                                                                <li>Do danych osobowych ma dostęp Administrator, podmioty przetwarzające dane na polecenie Administratora oraz osoby działające z upoważnienia Administratora lub podmiotu przetwarzającego, a także w przypadku zaistnienia podstaw prawnych ku temu – sądy i organy ochrony prawnej.</li>
+                                                                <li>Twoje dane osobowe będą przekazywane stosownym organom ochrony prawnej, osobom działającym na podstawie umowy z Administratorem, bądź osobom upoważnionym.</li>
+                                                                <li>Twoje dane osobowe zostaną usunięte niezwłocznie, gdy staną się zbędne do celów, w jakich zostały zgromadzone, bądź niezwłocznie po otrzymaniu żądania, bądź też po upływie terminów przedawnienia ewentualnych roszczeń.</li>
+                                                                <li>Dane nie będą podlegać zautomatyzowanemu podejmowaniu decyzji, w tym profilowaniu.</li>
+                                                                <li>Przysługuje Ci prawo dostępu, sprostowania, uzupełnienia, przenoszenia, ograniczenia przetwarzania, usunięcia swoich danych osobowych.</li>
+                                                                <li>Jeśli dane osobowe są przetwarzane na podstawie udzielonej zgody może ona zostać cofnięta w każdym momencie. Cofnięcie zgody pozostaje bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</li>
+                                                                <li>W ramach przetwarzania dane osobowe nie będą podlegać zautomatyzowanemu podejmowaniu decyzji, w tym profilowaniu.</li>
+                                                                <li>Przysługuje Ci prawo do wniesienia w dowolnym momencie sprzeciwu do Administratora wobec przetwarzania swoich danych osobowych, jeśli jest to uzasadnione Twoją szczególną sytuacją, zaś dane były przetwarzane do celów wynikających z prawnie uzasadnionych interesów realizowanych przez Administratora lub przez stronę trzecią lub dane były profilowane. Możesz również sprzeciwić się przetwarzaniu swoich danych na potrzeby marketingu bezpośredniego.</li>
+                                                                <li>Przysługuje Ci również prawo do złożenia skargi do organu nadzoru, którym jest Prezes Urzędu Ochrony Danych Osobowych.</li>
                                                             </ol>
                                                         </div>
                                                     </div>
@@ -1284,40 +1081,16 @@
                                         <div class="col-12">
                                             <!-- POLICY -->
                                             <div class="form-check text-start pt-5 d-flex gap-3">
-                                                <input
-                                                        class="form-check-input"
-                                                        type="checkbox"
-                                                        value=""
-                                                        id="terms-check"
-                                                        name="terms"
-                                                />
-                                                <label
-                                                        class="form-check-label small fw-medium pt-1"
-                                                        for="terms-check"
-                                                >
+                                                <input class="form-check-input" type="checkbox" value="" id="terms-check" name="terms"/>
+                                                <label class="form-check-label small fw-medium pt-1" for="terms-check">
                                                     Zapoznałem/łam się z
-                                                    <a
-                                                            href="polityka-prywatnosci.html"
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                    >
-                                                        polityką prywatności</a
-                                                    >*
+                                                    <a href="/pl/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">polityką prywatności</a>*
                                                 </label>
                                             </div>
                                             <!-- DATA -->
                                             <div class="form-check text-start pt-2 d-flex gap-3">
-                                                <input
-                                                        class="form-check-input"
-                                                        type="checkbox"
-                                                        value=""
-                                                        id="terms-check-2"
-                                                        name="terms"
-                                                />
-                                                <label
-                                                        class="form-check-label small fw-medium pt-1"
-                                                        for="terms-check-2"
-                                                >
+                                                <input class="form-check-input" type="checkbox" value="" id="terms-check-2" name="terms"/>
+                                                <label class="form-check-label small fw-medium pt-1" for="terms-check-2">
                                                     Zgadzam się na przetwarzanie moich danych osobowych
                                                     przez Administratora i osoby działające z jego
                                                     upoważnienia i podmioty przetwarzające dane na
