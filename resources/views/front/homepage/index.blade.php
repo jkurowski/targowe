@@ -1129,7 +1129,7 @@
                         <div class="ap-box">
                             <picture>
                                   <img
-                                        src="{{ asset('images/m2.jpg') }}"
+                                        src="{{ asset('images/m1.png') }}"
                                         width="255"
                                         height="255"
                                         class="img-fluid"
@@ -1155,7 +1155,7 @@
                         <div class="ap-box">
                             <picture>
                                 <img
-                                        src="{{ asset('images/m3.jpg') }}"
+                                        src="{{ asset('images/m3.png') }}"
                                         width="255"
                                         height="255"
                                         class="img-fluid"
@@ -1193,7 +1193,7 @@
                         <div class="ap-box">
                             <picture>
                                 <img
-                                        src="{{ asset('images/m4.jpg') }}"
+                                        src="{{ asset('images/m4.png') }}"
                                         width="255"
                                         height="255"
                                         class="img-fluid"
