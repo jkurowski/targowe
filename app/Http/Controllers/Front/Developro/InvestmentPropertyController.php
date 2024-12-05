@@ -33,7 +33,7 @@ class InvestmentPropertyController extends Controller
         $prev = $property->findPrev($floor->id, 1, $investment->id, $property->number_order);
 
         $similar = Property::select('properties.*', 'floors.number as floor_number')
-            ->where('properties.type', $property->type)
+            ->where('properties.rooms', $property->rooms)
             ->where('properties.id', '<>', $property->id)
             //->where('properties.investment_id', '!=', 7)
             ->join('floors', 'properties.floor_id', '=', 'floors.id')

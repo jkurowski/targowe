@@ -1984,7 +1984,7 @@
                                                                     />
                                                                 </svg>
                                                             </div>
-                                                            <div class="info-text-text">{{ $floor->number }}</div>
+                                                            <div class="info-text-text">{{ $p->floor->number }}</div>
                                                         </div>
                                                         <!-- AMENITIES -->
                                                         <div class="info-text">
@@ -2033,14 +2033,8 @@
                                                     </div>
 
                                                     <!-- BUTTON -->
-                                                    <div
-                                                            class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-end"
-                                                            id="ap-btn"
-                                                    >
-                                                        <a
-                                                                class="btn btn-primary z-1 position-relative"
-                                                                href="{{route('property', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name), $p, 'property_slug' => Str::slug($p->name) ])}}"
-                                                        >
+                                                    <div class="col-12 col-lg-2 d-flex justify-content-center justify-content-lg-end" id="ap-btn">
+                                                        <a class="btn btn-primary z-1 position-relative" href="{{route('property', [$p->investment->slug, $p->floor, 'floor_slug' => Str::slug($p->floor->name), $p, 'property_slug' => Str::slug($p->name) ])}}">
                                                             Sprawdź
                                                             <svg
                                                                     xmlns="http://www.w3.org/2000/svg"
@@ -2108,7 +2102,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- MAJOR A TAG -->
-                                                <a href="{{route('property', [$investment->slug, $floor, 'floor_slug' => Str::slug($floor->name), $p, 'property_slug' => Str::slug($p->name) ])}}" class="whole-box z-0" aria-label="Link do mieszkania"></a>
+                                                <a href="{{route('property', [$p->investment->slug, $p->floor, 'floor_slug' => Str::slug($p->floor->name), $p, 'property_slug' => Str::slug($p->name) ])}}" class="whole-box z-0" aria-label="Link do mieszkania"></a>
                                             </div>
                                         </div>
                                     </div>
