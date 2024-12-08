@@ -752,28 +752,8 @@
                                 <div class="">
                                     <div class="img mb-30px">
                                         <picture>
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-1.webp') }}"
-                                                    media="(max-width: 992px)"
-                                                    type="image/webp') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-1@2x.webp') }}"
-                                                    media="(min-width: 992px)"
-                                                    type="image/webp') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-1.png') }}"
-                                                    media="(max-width: 992px)"
-                                                    type="image/png') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-1@2x.png') }}"
-                                                    media="(min-width: 992px)"
-                                                    type="image/png') }}"
-                                            />
                                             <img
-                                                    src="{{ asset('images/home/asset-1@2x.png') }}"
+                                                    src="{{ asset('images/home/lokalizacja.jpg') }}"
                                                     width="566"
                                                     height="1154"
                                                     class="img-fluid"
@@ -876,28 +856,8 @@
                                 <div class="">
                                     <div class="img mb-30px">
                                         <picture>
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-4.webp') }}"
-                                                    media="(max-width: 992px)"
-                                                    type="image/webp') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-4@2x.webp') }}"
-                                                    media="(min-width: 992px)"
-                                                    type="image/webp') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-4.png') }}"
-                                                    media="(max-width: 992px)"
-                                                    type="image/png') }}"
-                                            />
-                                            <source
-                                                    srcset="{{ asset('images/home/asset-4@2x.png') }}"
-                                                    media="(min-width: 992px)"
-                                                    type="image/png') }}"
-                                            />
                                             <img
-                                                    src="{{ asset('images/home/asset-4@2x.png') }}"
+                                                    src="{{ asset('images/home/stan-deweloperski.jpg') }}"
                                                     width="566"
                                                     height="1154"
                                                     class="img-fluid"
