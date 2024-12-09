@@ -25,6 +25,7 @@ class Article extends Model
         'meta_title',
         'meta_description',
         'meta_robots',
+        'link',
         'status',
         'sort',
         'posted_at'

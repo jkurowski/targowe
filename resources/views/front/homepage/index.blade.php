@@ -1429,13 +1429,21 @@
                                 <div class="date mb-2">{{ $article->posted_at }}</div>
                                 <span class="title mb-2">{{ $article->title }}</span>
                                 <!-- BUTTON -->
-                                <a class="btn btn-primary mb-2" href="{{ route('news.show', $article->slug) }}">
+                                @if($article->link)
+                                    <a class="btn btn-primary mb-2" href="{{ $article->link }}" target="_blank">
+                                @else
+                                    <a class="btn btn-primary mb-2" href="{{ route('news.show', $article->slug) }}">
+                                @endif
                                     Czytaj więcej
                                     <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg"><g transform="translate(-339 -1753.9)" data-name="Group 816"><g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20"><ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/><ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/></g><g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right"><path d="M0,5.764,5.764,0" data-name="Path 14793"/><path d="m0 0h5.764v5.764" data-name="Path 14794"/></g></g></svg>
                                 </a>
                             </div>
                             <!-- MAJOR A TAG - TAKING WHOLE SPACE OF A BOX -  -->
-                            <a href="{{ route('news.show', $article->slug) }}" class="whole-box" aria-label="Link do aktualności"></a>
+                            @if($article->link)
+                                <a href="{{ $article->link }}" class="whole-box" aria-label="Link do aktualności" target="_blank"></a>
+                            @else
+                                <a href="{{ route('news.show', $article->slug) }}" class="whole-box" aria-label="Link do aktualności"></a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
