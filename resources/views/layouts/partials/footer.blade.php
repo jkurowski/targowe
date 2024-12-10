@@ -153,7 +153,7 @@
                             <!-- FACEBOOK  -->
                             <!-- ---------- -->
                             <li class="nav-item pb-3">
-                                <a href="https://www.facebook.com/" aria-label="facebook">
+                                <a href="https://www.facebook.com/share/12BLJ4amYMp/?mibextid=LQQJ4d" target="_blank" aria-label="facebook">
                                     <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="15.537"
@@ -177,7 +177,7 @@
                             <!-- INSTAGRAM  -->
                             <!-- ---------- -->
                             <li class="nav-item pb-3">
-                                <a href="https://www.instagram.com/" aria-label="instagram">
+                                <a href="https://www.instagram.com/osiedletargowe?igsh=eDkwb3VvZTA0bnlr" target="_blank" aria-label="instagram">
                                     <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="24.037"
