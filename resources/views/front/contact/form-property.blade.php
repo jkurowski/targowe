@@ -1,4 +1,4 @@
-<form id="contact-form" autocomplete="off" class="p-0 p-lg-3 validateForm" action="{{route('contact.form')}}" method="post">
+<form id="contact-form" autocomplete="off" class="p-0 p-lg-3 validateForm" action="{{route('contact.property', ['property' => $property])}}" method="post">
     {{ csrf_field() }}
     <div class="row">
         <div class="col-12">
