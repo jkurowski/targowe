@@ -501,11 +501,7 @@
                                 data-aos="fade-up"
                                 data-aos-delay="200"
                         >
-                            Jesteśmy dumni z efektów naszej pracy i gorąco zachęcamy do
-                            zapoznania się z naszymi ukończonymi przedsięwzięciami
-                            deweloperskimi, które stanowią nie tylko dowód naszych
-                            umiejętności, ale również potwierdzenie zaufania naszych
-                            dotychczasowych klientów.
+                            Jesteśmy dumni z naszego doświadczenia. Współwłaściciel naszej firmy, Adam Woźniak, pełnił funkcję Kierownika Projektu Deweloperskiego w firmie REAL Development. Owocem tej współpracy są ukończone projekty deweloperskie, będące nie tylko świadectwem naszych umiejętności, lecz także dowodem zaufania, jakim obdarzyli nas dotychczasowi klienci i partnerzy biznesowi.
                         </p>
                     </div>
                     <!-- SLIDER -->
