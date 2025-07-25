@@ -175,6 +175,8 @@ Route::group([
                 '{investment}/buildings' => 'Building\BuildingController',
                 '{investment}/building.floors' => 'Building\BuildingFloorController',
                 '{investment}/building.floor.properties' => 'Building\BuildingPropertyController',
+                '{investment}/floor/{floor}/others' => 'Property\OthersController',
+                '{investment}/building.floor.others' => 'Building\BuildingOthersController',
                 '{investment}/property/{property}/message' => 'MessageController',
             ]);
 

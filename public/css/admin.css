@@ -3086,6 +3086,47 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+/* Inne powierzchnie
+================================================== */
+.alert ul {margin:0;list-style:none;padding:0}
+.form-group h2 {
+    font-size: 16px;
+    color: #fff;
+    background: #272744;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+.control-col12 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.control-col12 .control-label {
+    flex: 25%;
+    padding: 10px 0
+}
+.control-col12 .control-input {
+    flex: 75%;
+}
+.control-col12 .control-input .btn {
+    font-size: 12px;
+}
+.control-col12 .control-input .input-group-append .btn {
+    font-size: 15px;
+}
+.input-group-text {
+    padding: 0;
+    width: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-group-text i {
+    font-size: 26px;
+    color: #00acc1;
+}
+
 /* Tabelki
 ================================================== */
 .table td,

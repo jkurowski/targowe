@@ -62,9 +62,7 @@
                                             ]
                                         ])
                                         @include('form-elements.html-select', ['label' => 'Rodzaj powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
-                                            '1' => 'Mieszkanie / Apartament',
-                                            '2' => 'Komórka lokatorska',
-                                            '3' => 'Miejsce parkingowe'
+                                            '1' => 'Mieszkanie / Apartament'
                                             ]
                                         ])
                                         @include('form-elements.html-select', ['label' => 'Typ powierzchni', 'name' => 'apartment_type', 'selected' => $entry->apartment_type, 'select' => [

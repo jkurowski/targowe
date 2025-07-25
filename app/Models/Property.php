@@ -27,7 +27,12 @@ class Property extends Model
         'number_order',
         'rooms',
         'area',
+        'area_search',
         'price',
+        'price_brutto',
+        'price_30',
+        'vat',
+        'bank_account',
         'garden_area',
         'balcony_area',
         'balcony_area_2',
@@ -52,7 +57,17 @@ class Property extends Model
         'meta_title',
         'meta_description',
         'views',
-        'active'
+        'active',
+        'highlighted',
+        'promotion_end_date',
+        'promotion_price',
+        'promotion_price_show',
+        'client_id',
+        'saled_at',
+        'reservation_until',
+        'visitor_related_type',
+        'text',
+        'history_info'
     ];
 
     /**
