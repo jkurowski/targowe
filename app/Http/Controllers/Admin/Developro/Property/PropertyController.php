@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 //CMS
 use App\Http\Requests\PropertyFormRequest;
+use App\Models\PropertyPriceComponent;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
 
@@ -56,11 +57,14 @@ class PropertyController extends Controller
 
     public function create(Investment $investment, Floor $floor)
     {
+        $priceComponents = PropertyPriceComponent::all();
+
         return view('admin.developro.investment_property.form', [
             'cardTitle' => 'Dodaj powierzchnię',
             'backButton' => route('admin.developro.investment.properties.index', [$investment, $floor]),
             'floor' => $floor,
             'investment' => $investment,
+            'priceComponents' => $priceComponents
         ])->with('entry', Property::make());
     }
 
@@ -71,6 +75,23 @@ class PropertyController extends Controller
             'investment_id' => $investment->id,
             'floor_id' => $floor->id
         ]));
+
+        $types = $request->input('price-component-type', []);
+        $categories = $request->input('price-component-category', []);
+        $values = $request->input('price-component-value', []);
+        $values_m2 = $request->input('price-component-m2-value', []);
+
+        $data = [];
+
+        foreach ($types as $index => $componentId) {
+            $data[$componentId] = [
+                'category' => $categories[$index],
+                'value' => $values[$index],
+                'value_m2' => $values_m2[$index],
+            ];
+        }
+
+        $property->priceComponents()->sync($data);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property);
@@ -85,18 +106,38 @@ class PropertyController extends Controller
 
     public function edit(Investment $investment, Floor $floor, Property $property)
     {
+        $priceComponents = PropertyPriceComponent::all();
+
         return view('admin.developro.investment_property.form', [
             'cardTitle' => 'Edytuj powierzchnię',
             'backButton' => route('admin.developro.investment.properties.index', [$investment, $floor]),
             'floor' => $floor,
             'investment' => $investment,
-            'entry' => $property
+            'entry' => $property,
+            'priceComponents' => $priceComponents
         ]);
     }
 
     public function update(PropertyFormRequest $request, Investment $investment, Floor $floor, Property $property)
     {
         $this->repository->update($request->validated(), $property);
+
+        $types = $request->input('price-component-type', []);
+        $categories = $request->input('price-component-category', []);
+        $values = $request->input('price-component-value', []);
+        $values_m2 = $request->input('price-component-m2-value', []);
+
+        $data = [];
+
+        foreach ($types as $index => $componentId) {
+            $data[$componentId] = [
+                'category' => $categories[$index],
+                'value' => $values[$index],
+                'value_m2' => $values_m2[$index],
+            ];
+        }
+
+        $property->priceComponents()->sync($data);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property, true);

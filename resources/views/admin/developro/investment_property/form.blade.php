@@ -131,6 +131,58 @@
                                         @include('form-elements.input-text', ['label' => 'Powierzchnia', 'name' => 'area', 'value' => $entry->area, 'required' => 1])
                                         @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
 
+                                <div class="row form-group">
+                                    <div class="col-3 col-form-label control-label">&nbsp;</div>
+                                    <div class="col-4">
+                                        <button id="add-price-component"
+                                                class="btn btn-primary mt-2"
+                                                type="button"
+                                                data-price-components='@json($priceComponents)'>
+                                            Dodaj dodatkowy składnik ceny
+                                        </button>
+                                    </div>
+                                    <div id="price-components">
+                                        @foreach(($entry->priceComponents ?? []) as $index => $component)
+                                            <div class="row price-component mb-3" data-price-component-id="{{ $component->id }}">
+                                                <div class="col-4">
+                                                    <label class="control-label">Typ składnika ceny mieszkania:</label>
+                                                    <select class="form-select" name="price-component-type[]">
+                                                        @foreach($priceComponents as $pc)
+                                                            <option value="{{ $pc->id }}" {{ $pc->id == $component->id ? 'selected' : '' }}>
+                                                                {{ $pc->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <label class="control-label">Rodzaj składnika ceny:</label>
+                                                    <select class="form-select" name="price-component-category[]">
+                                                        <option value="1" {{ $component->pivot->category == 1 ? 'selected' : '' }}>Obowiązkowy</option>
+                                                        <option value="2" {{ $component->pivot->category == 2 ? 'selected' : '' }}>Opcjonalny</option>
+                                                        <option value="3" {{ $component->pivot->category == 3 ? 'selected' : '' }}>Zmienny</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label class="control-label">Cena za m2 w PLN:</label>
+                                                    <input class="form-control" name="price-component-m2-value[]" type="text" value="{{ $component->pivot->value_m2 }}">
+                                                </div>
+                                                <div class="col-2">
+                                                    <label class="control-label">Cena całkowita w PLN:</label>
+                                                    <input class="form-control" name="price-component-value[]" type="text" value="{{ $component->pivot->value }}">
+                                                </div>
+                                                <div class="col-1 text-end">
+                                                    <label class="control-label d-block">&nbsp;</label>
+                                                    <button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button>
+                                                </div>
+                                                @error('price-component-m2-value.' . $index)
+                                                <div class="col-12">
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                </div>
+                                                @enderror
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
 
                                         @include('form-elements.input-text', ['label' => 'Ogródek', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'garden_area', 'value' => $entry->garden_area])
                                         @include('form-elements.input-text', ['label' => 'Balkon', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'balcony_area', 'value' => $entry->balcony_area])
@@ -182,4 +234,5 @@
         @endif
     });
 </script>
+<script>const addButton=document.getElementById("add-price-component"),priceComponents=JSON.parse(addButton.dataset.priceComponents);addButton.addEventListener("click",()=>{const e=Math.floor(1e3*Math.random()),t=priceComponents.map(e=>`<option value="${e.id}">${e.name}</option>`).join("");document.getElementById("price-components").insertAdjacentHTML("beforeend",`<div class="row price-component mb-3" data-price-component-id="${e}"><div class="col-4"><label class="control-label">Typ składnika ceny mieszkania:</label><select class="form-select" name="price-component-type[]">${t}</select></div><div class="col-3"><label class="control-label">Rodzaj składnika ceny:</label><select class="form-select" name="price-component-category[]"><option value="1">Obowiązkowy</option><option value="2">Opcjonalny</option><option value="3">Zmienny</option></select></div><div class="col-2"><label class="control-label">Cena za m² w PLN:</label><input class="form-control" name="price-component-m2-value[]" type="text" autocomplete="off"></div><div class="col-2"><label class="control-label">Cena całkowita w PLN:</label><input class="form-control" name="price-component-value[]" type="text" autocomplete="off"></div><div class="col-1 text-end"><label class="control-label d-block">&nbsp;</label><button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button></div></div>`)}),document.addEventListener("click",function(e){if(e.target.closest(".action-button")){const t=e.target.closest(".price-component");t&&t.remove()}}),document.addEventListener("input",function(e){const t=document.getElementById("form_area"),o=parseFloat(t.value.replace(",","."));if(!(isNaN(o)||o<=0)){if(e.target.matches('input[name="price-component-value[]"]')){const t=n(e.target.value),a=e.target.closest(".row.price-component");if(!a)return;const c=a.querySelector('input[name="price-component-m2-value[]"]');if(!c)return;const l=t/o;c.value=l>0?l.toFixed(2):""}if(e.target.matches('input[name="price-component-m2-value[]"]')){const t=n(e.target.value),a=e.target.closest(".row.price-component");if(!a)return;const c=a.querySelector('input[name="price-component-value[]"]');if(!c)return;const l=t*o;c.value=l>0?l.toFixed(2):""}}function n(e){return parseFloat(e.replace(",","."))||0}});</script>
 @endpush
