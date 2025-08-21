@@ -16,6 +16,7 @@ return [
         'carousel_file_path' => 'uploads/investments/carousel/',
         'preview_file_path' => 'uploads/investments/thumbs/',
         'preview_carousel_path' => 'uploads/investments/carousel/',
+        'brochure_file_path' => 'uploads/investment/brochure/'
     ],
 
     /*

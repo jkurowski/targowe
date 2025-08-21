@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Developro\Investment;
 
+use App\Helpers\InvestmentHelpers;
+use App\Helpers\ProvinceTypes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestmentFormRequest;
 use App\Models\Investment;
@@ -43,7 +45,10 @@ class IndexController extends Controller
     {
         return view('admin.developro.investment.form', [
             'cardTitle' => 'Dodaj inwestycje',
-            'backButton' => route('admin.developro.investment.index')
+            'backButton' => route('admin.developro.investment.index'),
+            'companies' => InvestmentHelpers::getCompanies(),
+            'salePoints' => InvestmentHelpers::getSalePoints(),
+            'provinces' => ProvinceTypes::getProvinces()
         ])->with('entry', Investment::make());
     }
 
@@ -53,6 +58,10 @@ class IndexController extends Controller
 
         if ($request->hasFile('file')) {
             $this->service->uploadThumb($request->name, $request->file('file'), $investment);
+        }
+
+        if ($request->hasFile('file_brochure')) {
+            $this->service->uploadBrochure($request->name, $request->file('file_brochure'), $investment);
         }
 
         return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zapisana');
@@ -68,7 +77,10 @@ class IndexController extends Controller
         return view('admin.developro.investment.form', [
             'entry' => $this->repository->find($id),
             'cardTitle' => 'Edytuj inwestycję',
-            'backButton' => route('admin.developro.investment.index')
+            'backButton' => route('admin.developro.investment.index'),
+            'companies' => InvestmentHelpers::getCompanies(),
+            'salePoints' => InvestmentHelpers::getSalePoints(),
+            'provinces' => ProvinceTypes::getProvinces()
         ]);
     }
 
@@ -84,6 +96,10 @@ class IndexController extends Controller
 
         if ($request->hasFile('file')) {
             $this->service->uploadThumb($request->name, $request->file('file'), $investment, true);
+        }
+
+        if ($request->hasFile('file_brochure')) {
+            $this->service->uploadBrochure($request->name, $request->file('file_brochure'), $investment, true);
         }
 
         return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zaktualizowana');

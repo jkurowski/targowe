@@ -1,6 +1,6 @@
 @php
     $subLabel = isset($sublabel) ? '<span>' . $sublabel . '</span>' : '';
-    $labelClass = 'col-12 col-form-label control-label pb-2';
+    $labelClass = 'col-12 col-form-label control-label pb-2 justify-content-start';
     $inputClass = 'form-control';
     $divClass = $class ?? 'col-12 control-input position-relative d-flex align-items-center';
     $required = isset($required) && $required;

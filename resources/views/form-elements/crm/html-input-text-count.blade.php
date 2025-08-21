@@ -6,9 +6,9 @@
     }
 @endphp
 @isset($required)
-    {!! Form::label($name, '<div class="text-right">'.$label.' <span class="text-danger d-inline">*</span><span>'.$sublabel.'</span></div>', ['class' => 'col-12 col-form-label control-label pb-2 required'], false) !!}
+    {!! Form::label($name, '<div class="text-start">'.$label.' <span class="text-danger d-inline">*</span><span>'.$sublabel.'</span></div>', ['class' => 'col-12 col-form-label control-label pb-2 justify-content-start required'], false) !!}
 @else
-    {!! Form::label($name, '<div class="text-right">'.$label.$sublabel.'</div>', ['class' => 'col-12 col-form-label control-label pb-2'], false) !!}
+    {!! Form::label($name, '<div class="text-start">'.$label.$sublabel.'</div>', ['class' => 'col-12 col-form-label control-label pb-2 justify-content-start'], false) !!}
 @endisset
 <div class="@isset($class) {{ $class }} @else {{ 'col-12 control-input position-relative d-flex align-items-center' }} @endisset">
     @isset($value)
