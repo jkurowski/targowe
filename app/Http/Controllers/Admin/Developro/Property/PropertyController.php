@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 //CMS
 use App\Http\Requests\PropertyFormRequest;
 use App\Models\PropertyPriceComponent;
+use App\Models\PropertyProperty;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
 
 use App\Models\Floor;
 use App\Models\Investment;
 use App\Models\Property;
+use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
@@ -106,6 +108,20 @@ class PropertyController extends Controller
 
     public function edit(Investment $investment, Floor $floor, Property $property)
     {
+        // Przynalezne
+        $isRelated = PropertyProperty::where('related_property_id', $property->id)->exists();
+        $related = $property->relatedProperties;
+        $allOthers = Property::with(
+            //'building',
+            'floor'
+            )
+            ->where('investment_id', $investment->id)
+            ->where('id', '<>', $property->id)
+            ->where('status', 1)
+            //->whereNull('client_id')
+            ->get();
+
+        // Skladniki ceny
         $priceComponents = PropertyPriceComponent::all();
 
         return view('admin.developro.investment_property.form', [
@@ -114,7 +130,10 @@ class PropertyController extends Controller
             'floor' => $floor,
             'investment' => $investment,
             'entry' => $property,
-            'priceComponents' => $priceComponents
+            'priceComponents' => $priceComponents,
+            'isRelated' => $isRelated,
+            'related' => $related,
+            'others' => $allOthers->pluck('name', 'id'),
         ]);
     }
 
@@ -148,6 +167,49 @@ class PropertyController extends Controller
         }
 
         return redirect(route('admin.developro.investment.properties.index', [$investment, $floor]))->with('success', 'Powierzchnia zaktualizowana');
+    }
+
+    public function storerelated(Request $request, $investmentId, $floorId, $propertyId)
+    {
+        $request->validate([
+            'related_property_id' => 'required|exists:properties,id',
+        ]);
+
+        $related_id = $request->input('related_property_id');
+
+        $isRelated = PropertyProperty::where('related_property_id', $related_id)->exists();
+        $related_property = Property::findOrFail($related_id);
+
+        if ($isRelated) {
+            return getRelatedType($related_property->type);
+        }
+
+        $property = Property::findOrFail($propertyId);
+        $property->relatedProperties()->attach($related_id);
+
+        // Return a response
+        return view('admin.developro.investment_shared.related', ['property' => $related_property]);
+    }
+
+    public function removerelated(Request $request, $investmentId, $floorId, $propertyId)
+    {
+        // Validate the input
+        $request->validate([
+            'related_id' => 'required|exists:properties,id',
+        ]);
+
+        $relatedId = $request->input('related_id');
+
+        $property = Property::findOrFail($propertyId);
+        $isRelated = $property->relatedProperties()->where('related_property_id', $relatedId)->exists();
+
+        if ($isRelated) {
+            $property->relatedProperties()->detach($relatedId, ['client_id' => null]);
+
+            return response()->json([
+                'status' => 'removed'
+            ]);
+        }
     }
 
     public function destroy(Investment $investment, Floor $floor, int $id)

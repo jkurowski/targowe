@@ -61,6 +61,53 @@
                                             '1' => 'Tak'
                                             ]
                                         ])
+
+                                        @if(Route::is('admin.developro.investment.properties.edit'))
+                                            <div class="row form-group">
+                                                <div class="col-12">
+                                                    <h2>Przynależne powierzchnie</h2>
+                                                    @if($isRelated)
+                                                        <div class="alert alert-danger">Ta powierzchnia jest powiązana z inną.</div>
+                                                    @endif
+                                                    <table class="table">
+                                                        <tbody id="added">
+                                                        @foreach($related as $r)
+                                                            <tr>
+                                                                <td class="pe-0 text-center">
+                                                                    <input type="checkbox" class="checkbox" name="property[]" id="{{ $r->id }}" value="{{ $r->id }}" style="display: none;">
+                                                                    <span data-property="{{ $r->id }}" class="remove-related"><i class="las la-trash-alt"></i></span>
+                                                                </td>
+                                                                <td><a href="#" target="_blank"><b>{{ $r->name }}</b></a></td>
+                                                                <td class="text-center"><b>{{ $r->getLocation() }}</b></td>
+                                                                <td class="text-center">Pow.: <b>{{ $r->area }}</b></td>
+                                                                <td class="text-center">
+                                                                    @if($r->price_brutto)
+                                                                        Cena: <b>@money($r->price_brutto)</b>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <span class="badge room-list-status-{{ $r->status }}">{{ roomStatus($r->status) }}</span>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <form id="related">
+                                                        <div class="input-group mb-3">
+                                                            <select class="form-select select-related selecpicker-noborder p-0" name="" id="related_property_id" aria-describedby="button-addon" data-live-search="true" data-size="5">
+                                                                <option value="">Wybierz</option>
+                                                                @foreach($others as $id => $name)
+                                                                    <option value="{{ $id }}">{{ $name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon">Dodaj</button>
+                                                        </div>
+                                                    </form>
+                                                    <div id="liveAlertPlaceholder"></div>
+                                                </div>
+                                            </div>
+                                        @endif
+
                                         @include('form-elements.html-select', ['label' => 'Rodzaj powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
                                             '1' => 'Mieszkanie / Apartament'
                                             ]
@@ -234,5 +281,114 @@
         @endif
     });
 </script>
+
+@if(Route::is('admin.developro.investment.properties.edit'))
+<!-- Przynalezne -->
+<link href="{{ asset('/js/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet">
+<script src="{{ asset('/js/bootstrap-select/bootstrap-select.min.js') }}" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select-related').selectpicker();
+    });
+    attachSpanFunctionality();
+
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    const appendAlert = (message, type, duration = 7000) => {
+        const wrapper = document.createElement('div')
+        wrapper.innerHTML = [
+            `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+            `   <div>${message}</div>`,
+            '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+            '</div>'
+        ].join('')
+
+        alertPlaceholder.append(wrapper);
+
+        setTimeout(() => {
+            wrapper.remove();
+        }, duration);
+    }
+
+    $('#button-addon').click(function(e) {
+        e.preventDefault();
+
+        const relatedPropertyId = $('#related_property_id').val();
+
+        if (!relatedPropertyId) {
+            alert('Please select a property to add.');
+            return;
+        }
+
+        const data = {
+            property: {{ $entry->id  }},
+            related_property_id: relatedPropertyId,
+            _token: '{{ csrf_token() }}'  // Include CSRF token if needed
+        };
+
+        $.ajax({
+            url: '{{ route('admin.developro.investment.related.store', ['investment' => $investment, 'floor' => $floor, 'property' => $entry->id]) }}',
+            method: 'POST',
+            data: data,
+            success: function(response) {
+                $('#added').append(response);
+                attachSpanFunctionality();
+
+                const lastTypeInputValue = $('#added input[name="related_type"]:last').val();
+
+                if (lastTypeInputValue === '1') {
+                    appendAlert('Mieszkanie zostało przypisane poprawnie', 'success');
+                } else if (lastTypeInputValue === '2') {
+                    appendAlert('Komórka lokatorska została przypisana poprawnie', 'success');
+                } else if (lastTypeInputValue === '3') {
+                    appendAlert('Miejsce parkingowe zostało przypisane poprawnie', 'success');
+                } else {
+                    appendAlert('Wybrana powierzchnia została przypisana poprawnie', 'success');
+                }
+            },
+            error: function(xhr) {
+                const errorMessage = xhr.responseJSON.error;
+
+                appendAlert(errorMessage, 'danger');
+            }
+        });
+    });
+
+    function attachSpanFunctionality() {
+        const spans = added.querySelectorAll(".remove-related");
+        spans.forEach(function(span) {
+            span.addEventListener("click", function(d) {
+                const closestTr = this.closest("tr");
+                var related = this.getAttribute('data-property');
+
+                const button = $(d.currentTarget);
+                button.css('pointer-events', 'none');
+
+                $.ajax({
+                    url: '{{ route('admin.developro.investment.related.remove', ['investment' => $investment, 'floor' => $floor, 'property' => $entry->id]) }}', // Replace with the appropriate endpoint
+                    type: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        related_id: related
+                    },
+                    success: function() {
+                        appendAlert('Lokal został poprawnie usunięty', 'success');
+                        if (closestTr) {
+                            closestTr.remove(); // Remove the row after successful deletion
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        alert('Wystąpił błąd podczas usuwania.');
+                    },
+                    complete(){
+                        button.css('pointer-events', 'auto');
+                    }
+                });
+            });
+        });
+    }
+</script>
+@endif
+
 <script>const addButton=document.getElementById("add-price-component"),priceComponents=JSON.parse(addButton.dataset.priceComponents);addButton.addEventListener("click",()=>{const e=Math.floor(1e3*Math.random()),t=priceComponents.map(e=>`<option value="${e.id}">${e.name}</option>`).join("");document.getElementById("price-components").insertAdjacentHTML("beforeend",`<div class="row price-component mb-3" data-price-component-id="${e}"><div class="col-4"><label class="control-label">Typ składnika ceny mieszkania:</label><select class="form-select" name="price-component-type[]">${t}</select></div><div class="col-3"><label class="control-label">Rodzaj składnika ceny:</label><select class="form-select" name="price-component-category[]"><option value="1">Obowiązkowy</option><option value="2">Opcjonalny</option><option value="3">Zmienny</option></select></div><div class="col-2"><label class="control-label">Cena za m² w PLN:</label><input class="form-control" name="price-component-m2-value[]" type="text" autocomplete="off"></div><div class="col-2"><label class="control-label">Cena całkowita w PLN:</label><input class="form-control" name="price-component-value[]" type="text" autocomplete="off"></div><div class="col-1 text-end"><label class="control-label d-block">&nbsp;</label><button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button></div></div>`)}),document.addEventListener("click",function(e){if(e.target.closest(".action-button")){const t=e.target.closest(".price-component");t&&t.remove()}}),document.addEventListener("input",function(e){const t=document.getElementById("form_area"),o=parseFloat(t.value.replace(",","."));if(!(isNaN(o)||o<=0)){if(e.target.matches('input[name="price-component-value[]"]')){const t=n(e.target.value),a=e.target.closest(".row.price-component");if(!a)return;const c=a.querySelector('input[name="price-component-m2-value[]"]');if(!c)return;const l=t/o;c.value=l>0?l.toFixed(2):""}if(e.target.matches('input[name="price-component-m2-value[]"]')){const t=n(e.target.value),a=e.target.closest(".row.price-component");if(!a)return;const c=a.querySelector('input[name="price-component-value[]"]');if(!c)return;const l=t*o;c.value=l>0?l.toFixed(2):""}}function n(e){return parseFloat(e.replace(",","."))||0}});</script>
 @endpush

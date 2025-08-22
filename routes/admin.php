@@ -183,6 +183,9 @@ Route::group([
                 '{investment}/property/{property}/message' => 'MessageController',
             ]);
 
+            Route::post('{investment}/{floor}/{property}/related', 'Property\PropertyController@storerelated')->name('related.store');
+            Route::post('{investment}/{floor}/{property}/remove-related', 'Property\PropertyController@removerelated')->name('related.remove');
+
             Route::get('{investment}/floors/{floor}/copy', 'Floor\FloorController@copy')->name('floors.copy');
             Route::get('{investment}/building/{building}/floors/{floor}/copy', 'Building\BuildingFloorController@copy')->name('building.floors.copy');
         });
