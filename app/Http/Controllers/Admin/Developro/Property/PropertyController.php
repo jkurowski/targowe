@@ -118,6 +118,7 @@ class PropertyController extends Controller
             ->where('investment_id', $investment->id)
             ->where('id', '<>', $property->id)
             ->where('status', 1)
+            ->where('type', '!=', 1)
             //->whereNull('client_id')
             ->get();
 
