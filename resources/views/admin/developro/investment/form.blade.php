@@ -127,7 +127,7 @@
                     @include('form-elements.html-input-file-pdf', [
                         'label' => 'Prospekt informacyjny .pdf',
                         'sublabel' =>
-                        'Plan do pobrania',
+                        '',
                         'name' => 'file_brochure',
                         'file' => $entry->file_brochure,
                         'file_preview' => config('images.investment.brochure_file_path'),
