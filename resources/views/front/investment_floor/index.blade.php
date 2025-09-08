@@ -433,19 +433,19 @@
                                         <!-- INFO -->
                                         <div class="row apartment-row align-items-lg-center gy-3 gx-3">
                                             <!-- APARTMENT TITLE -->
-                                            <div class="col-4 col-lg-2 d-flex justify-md-content-center title">
+                                            <div class="col-4 @if($p->type == 1) col-lg-2 @else col-8 @endif d-flex justify-md-content-center title">
                                                 {{ $p->name }}
                                             </div>
                                             <!-- IMAGE -->
+                                            @if($p->type == 1)
                                             <div class="col-4 col-lg-2 d-flex justify-content-center info-img">
-                                                @if($p->type == 1)
                                                 <picture>
                                                     <source type="image/webp" srcset="/investment/property/list/webp/{{$p->file_webp}}">
                                                     <source type="image/jpeg" srcset="/investment/property/list/{{$p->file}}">
                                                     <img src="/investment/property/list/{{$p->file}}" alt="{{$p->name}}" class="img-fluid" loading="lazy" width="183" height="129">
                                                 </picture>
-                                                @endif
                                             </div>
+                                            @endif
 
                                             <!-- INFO -->
                                             <div class="col-12 col-lg-6 info-box">
