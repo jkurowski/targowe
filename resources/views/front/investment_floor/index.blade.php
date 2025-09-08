@@ -433,7 +433,7 @@
                                         <!-- INFO -->
                                         <div class="row apartment-row align-items-lg-center gy-3 gx-3">
                                             <!-- APARTMENT TITLE -->
-                                            <div class="col-4 @if($p->type == 1) col-lg-2 @else col-4 @endif d-flex justify-md-content-center title">
+                                            <div class="col-12 @if($p->type == 1) col-lg-2 @else col-lg-4 @endif d-flex justify-md-content-center title">
                                                 {{ $p->name }}
                                             </div>
                                             <!-- IMAGE -->
