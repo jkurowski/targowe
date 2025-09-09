@@ -218,16 +218,16 @@ class Property extends Model
             return 'X';
         }
 
-        return (float)$this->price_brutto
+        return (float)$this->price
             + $this->relatedProperties->sum(function ($prop) {
-                return (float)$prop->price_brutto;
+                return (float)$prop->price;
             });
     }
 
     public function getDisplayPriceAttribute()
     {
-        return ($this->type == 1 && $this->price_brutto)
-            ? $this->price_brutto
+        return ($this->type == 1 && $this->price)
+            ? $this->price
             : 'X';
     }
 //    public static function boot()
