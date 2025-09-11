@@ -15944,3 +15944,198 @@ p {
 .qtip.status-4 .qtip-content canvas {background:#de8300}
 
 .formError{position:absolute;top:300px;left:300px;display:block;z-index:500;cursor:pointer;border:0 !important;}.formError .formErrorContent{background:#ff9000;position:relative;z-index:5001;color:#fff;width:190px;font-size:10px;border:1px solid #ff9000;line-height:normal;padding:2px 10px 2px 10px}.formError .formErrorArrow{width:12px;margin:-2px 0 0 1px;position:relative;z-index:5006}.formError .formErrorArrowBottom{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;margin:0 0 0 12px;top:2px}.formError .formErrorArrow div{font-size:0;height:1px;background:#ff9000;margin:0 auto;line-height:0;display:block}.formError .formErrorArrowBottom div{box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none}.formError .formErrorArrow .line10{width:15px;border:0}.formError .formErrorArrow .line9{width:13px;border:0}.formError .formErrorArrow .line8{width:11px}.formError .formErrorArrow .line7{width:9px}.formError .formErrorArrow .line6{width:7px}.formError .formErrorArrow .line5{width:5px}.formError .formErrorArrow .line4{width:3px}.formError .formErrorArrow .line3{width:1px}.formError .formErrorArrow .line2{width:0}.formError .formErrorArrow .line1{width:0}.inputbox-error{border-bottom:1px solid #ff9000!important}
+
+
+/* Historia cen
+================================================== */
+.property-related {
+    background: #fbf6ee
+}
+
+.property-related h5 {
+    padding: 10px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: #fff;
+    background: #6e8373;
+}
+
+.property-related .table {
+    margin-bottom: 0;
+}
+
+.property-related .table td,
+.property-related .table th {
+    color: #000;
+    font-size: 14px;
+}
+
+.property-related .table td svg,
+.property-related .table th svg {
+    fill: black;
+}
+
+.property-related .table th {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.property-related .table td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.property-related .table > :not(:last-child) > :last-child > * {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+}
+
+.property-related .table > :not(caption) > * > * {
+    background: none;
+}
+
+.property-summary {
+    padding: 10px;
+    background: #6e8373;
+    color: white;
+}
+
+.property-offer-check {
+    padding: 10px;
+}
+
+.property-offer-check p {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+#offerModal .dropdown {
+    width: 100%;
+}
+
+#offerModal .dropdown-toggle {
+    background: #2c3e50;
+    border-radius: 3px;
+    border: 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 15px;
+}
+
+#offerModal .dropdown-toggle:after {
+    margin-left: .255em;
+    border-top: .5em solid;
+    border-right: .5em solid transparent;
+    border-left: .5em solid transparent;
+    display: block;
+}
+
+#offerModal .dropdown-menu {
+    background: #e3e3e3;
+}
+
+#offerModal .dropdown-menu li a {
+    background: white;
+    margin-top: 2px;
+    color: black;
+    font-size: 14px;
+}
+
+#offerModal .dropdown-menu li a.selected,
+#offerModal .dropdown-menu li a.selected:hover {
+    background: #2c3e50;
+    color: white;
+}
+
+#offerModal .dropdown-menu li a:hover {
+    background: #cfab6f;
+    color: white;
+}
+
+#offerModal .bs-searchbox {
+    padding: 10px;
+}
+
+#offerModal .bs-searchbox .form-control {
+    background: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+}
+
+#offerModal .dropdown-menu.inner {
+    padding: 0 10px 10px;
+}
+
+#offerModal #relatedProperty h2 {
+    font-size: 24px !important;
+}
+
+#offerModal #relatedProperty li {
+    padding: 5px 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+#offerModal #relatedProperty li:last-child {
+    border: 0;
+}
+
+#offerModal #relatedProperty li strong {
+    font-weight: 600;
+}
+
+#offerModal .modal-footer .btn {
+    font-size: 13px;
+    padding: 9px 42px;
+}
+
+#offerModal .modal-footer .btn.btn-secondary {
+    background: #c6c6c6;
+    border-color: #c6c6c6;
+    color: #515151;
+}
+
+#offerModal .modal-footer .btn.btn-secondary:hover {
+    background: #4f4f4f;
+    border-color: #4f4f4f;
+    color: #fff;
+}
+
+#offerModal .modal-footer .btn.btn-primary {
+    background: #cfab6f;
+    border-color: #cfab6f;
+    color: white;
+    font-weight: 600;
+}
+
+#offerModal .modal-footer .btn.btn-primary:hover {
+    background: #bf9959;
+    border-color: #bf9959;
+}
+
+.promotion-price h6,
+.promotion-price p {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+ul.price-component {
+    background: #fbf6ee;
+}
+
+ul.price-component li {
+    font-size: 12px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    border-bottom: 1px solid #d7d2d0;
+}
+
+ul.price-component li span {
+    float: none;
+    display: block;
+    line-height: 1.1;
+    font-size: 16px;
+}
+
+ul.price-component li .small {
+    font-size: 11px;
+}
