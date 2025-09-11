@@ -881,12 +881,14 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19.971" height="19.971" viewBox="0 0 19.971 19.971"><g id="Group_816" data-name="Group 816" transform="translate(-339 -1753.929)"><g id="Ellipse_20" data-name="Ellipse 20" transform="translate(358.971 1753.929) rotate(90)" fill="#345e3e" stroke="#345e3e" stroke-width="1"><ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/><ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/></g><g id="Icon_feather-arrow-up-right" data-name="Icon feather-arrow-up-right" transform="translate(348.985 1759.839) rotate(45)"><path id="Path_14793" data-name="Path 14793" d="M0,5.764,5.764,0" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/><path id="Path_14794" data-name="Path 14794" d="M0,0H5.764V5.764" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/></g></g></svg>
                             </a>
                             @endif
+                            @auth()
                             @if($property->investment->file_brochure)
                             <a class="btn btn-primary" href="{{ asset('/investment/brochure/'.$property->investment->file_brochure) }}" target="_blank">
                                 Prospekt informacyjny
                                 <svg xmlns="http://www.w3.org/2000/svg" width="19.971" height="19.971" viewBox="0 0 19.971 19.971"><g id="Group_816" data-name="Group 816" transform="translate(-339 -1753.929)"><g id="Ellipse_20" data-name="Ellipse 20" transform="translate(358.971 1753.929) rotate(90)" fill="#345e3e" stroke="#345e3e" stroke-width="1"><ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"/><ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"/></g><g id="Icon_feather-arrow-up-right" data-name="Icon feather-arrow-up-right" transform="translate(348.985 1759.839) rotate(45)"><path id="Path_14793" data-name="Path 14793" d="M0,5.764,5.764,0" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/><path id="Path_14794" data-name="Path 14794" d="M0,0H5.764V5.764" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/></g></g></svg>
                             </a>
                             @endif
+                            @endauth
                         </div>
                     </div>
 
