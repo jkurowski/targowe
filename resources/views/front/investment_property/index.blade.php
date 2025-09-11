@@ -643,13 +643,13 @@
                         </div>
 
                             <div class="row mb-3">
-                                @if($property->price_brutto && $property->status == 1)
+                                @if($property->price && $property->status == 1)
                                     <div class="col-12 col-sm-6 @if($property->highlighted) promotion-price order-2 text-center text-sm-end @endif">
-                                        <h6 class="fs-3 fw-normal mb-0">@money($property->price_brutto)</h6>
-                                        <p>@money(($property->price_brutto / $property->area)) / m<sup>2</sup></p>
+                                        <h6 class="fs-3 fw-normal mb-0">@money($property->price)</h6>
+                                        <p>@money(($property->price / $property->area)) / m<sup>2</sup></p>
                                     </div>
                                 @endif
-                                @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                @if($property->promotion_price && $property->price && $property->highlighted)
                                     <div class="col-12 col-sm-6 @if($property->highlighted) order-1 text-center text-sm-start @endif">
                                         <h6 class="fs-3 fw-normal mb-0">@money($property->promotion_price)</h6>
                                         <p>@money(($property->promotion_price / $property->area)) / m<sup>2</sup></p>
