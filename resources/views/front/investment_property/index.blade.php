@@ -655,7 +655,7 @@
                                         <p>@money(($property->promotion_price / $property->area)) / m<sup>2</sup></p>
                                     </div>
                                 @endif
-                                <div class="col-12 order-3 d-nonoe">
+                                <div class="col-12 order-3 d-none">
                                     {{--                                @auth--}}
                                     {{--                                    @if($property->has_price_history)--}}
                                     <a href="#" class="btn btn-primary btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
