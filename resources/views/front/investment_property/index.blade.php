@@ -2179,7 +2179,7 @@
                 modalHolder.innerHTML = '';
 
                 try {
-                    const url = `/historia/${dataId}/`;
+                    const url = `/pl/historia/${dataId}/`;
 
                     const response = await fetch(url, {
                         headers: {
