@@ -44,6 +44,11 @@ Route::middleware(['restrictIp'])->group(function () {
             Route::post('/kontakt', 'ContactController@contact')->name('contact.form');
             Route::post('/kontakt/{property}', 'ContactController@property')->name('contact.property');
 
+            //Historia cen
+            Route::get('/historia/{property}', 'History\IndexController@show')->name('history');
+            Route::get('/przynalezne/{property}', 'History\IndexController@others')->name('others');
+            Route::get('/przynalezne/{property}/show', 'History\IndexController@other')->name('others.show');
+            Route::get('/przynalezne/{property}/table', 'History\IndexController@otherTable')->name('others.table');
 
             Route::post('/clipboard', 'Clipboard\IndexController@store')->name('clipboard.store');
             Route::post('/clipboard/send', 'Clipboard\IndexController@send')->name('clipboard.send');

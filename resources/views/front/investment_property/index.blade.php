@@ -655,9 +655,8 @@
                                         <p>@money(($property->promotion_price / $property->area)) / m<sup>2</sup></p>
                                     </div>
                                 @endif
-                                <div class="col-12 order-3 d-none">
-                                    {{--                                @auth--}}
-                                    {{--                                    @if($property->has_price_history)--}}
+                                @auth()
+                                <div class="col-12 order-3">
                                     <a href="#" class="btn btn-primary btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
                                             <g transform="translate(-339 -1753.9)" data-name="Group 816">
                                                 <g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20">
@@ -671,9 +670,8 @@
                                             </g>
                                         </svg></a>
                                     <div id="modalHistory"></div>
-                                    {{--                                    @endif--}}
-                                    {{--                                @endauth--}}
                                 </div>
+                                @endauth
                             </div>
 
                         @auth()
