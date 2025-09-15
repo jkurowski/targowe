@@ -37,7 +37,7 @@ class PropertyFormRequest extends FormRequest
             'number_order' => 'integer',
             'type' => 'required|integer',
             'apartment_type' => 'required_if:type,1|integer',
-            'specialoffer' => 'required_if:type,1|integer',
+            //'specialoffer' => 'required_if:type,1|integer',
             'specialoffer_text' => 'nullable|max:250',
             'garage_text' => 'nullable|max:250',
             'safe_loan' => 'required_if:type,1|integer',
@@ -59,13 +59,21 @@ class PropertyFormRequest extends FormRequest
             'meta_description' => '',
             'active' => 'boolean',
 
-            'price' => ['nullable', 'regex:/^\d+(\.\d{1,2})?$/'],
+            'price' => [
+                'nullable',
+                'regex:/^\d+(\.\d{1,2})?$/',
+                function ($attribute, $value, $fail) {
+                    if (!preg_match('/^\d+(\.\d{1,2})?$/', $value)) {
+                        $fail('Pole "' . $attribute . '" musi być liczbą dziesiętną z kropką i maksymalnie 2 miejscami po przecinku (np. 123.45).');
+                    }
+                },
+            ],
             'price_brutto' => ['nullable', 'regex:/^\d+(\.\d{1,2})?$/'],
             'price_30' => ['nullable', 'regex:/^\d+(\.\d{1,2})?$/'],
             'vat' => '',
             'promotion_price' => [
                 'nullable',
-                'numeric',
+                'regex:/^\d+(\.\d{1,2})?$/',
                 function ($attribute, $value, $fail) {
                     if (!empty($value) && !$this->boolean('highlighted')) {
                         $fail('Pole "Promocja" musi być zaznaczone, jeśli ustawiono cenę promocyjną.');
@@ -82,17 +90,7 @@ class PropertyFormRequest extends FormRequest
             ],
             'promotion_end_date' => 'nullable|date|after:now',
             'promotion_price_show' => 'boolean',
-            'client_id' => [
-                'nullable',
-                function ($attribute, $value, $fail) {
-                    if ($value !== null && $value != 0) {
-                        $exists = Client::where('id', $value)->exists();
-                        if (!$exists) {
-                            $fail('The selected client does not exist.');
-                        }
-                    }
-                },
-            ],
+            'client_id' => '',
             'saled_at' => 'nullable|date',
             'reservation_until' => 'nullable|date|after_or_equal:saled_at',
             'text' => '',
@@ -123,11 +121,23 @@ class PropertyFormRequest extends FormRequest
             'status.required' => 'Status jest wymagany.',
             'name.required' => 'Nazwa jest wymagana',
             'number.required' => 'Numer jest wymagany.',
-            'apartment_type.required' => 'Typ apartamentu jest wymagany.',
-            'specialoffer.required' => 'Oferta specjalna jest wymagany.',
-            'safe_loan.required' => 'safe_loan jest wymagany.',
-            'safe_loan.required' => 'safe_loan jest wymagany.',
             'rooms.required' => 'Ilosć pokoi jest wymagany.',
+
+            'type.required' => 'Pole "Typ" jest wymagane.',
+            'type.integer' => 'Pole "Typ" musi być liczbą całkowitą.',
+
+            'apartment_type.required_if' => 'Pole "Rodzaj mieszkania" jest wymagane, gdy typ wynosi 1.',
+            'apartment_type.integer' => 'Pole "Rodzaj mieszkania" musi być liczbą całkowitą.',
+
+            'specialoffer.required_if' => 'Pole "Specjalna oferta" jest wymagane, gdy typ wynosi 1.',
+            'specialoffer.integer' => 'Pole "Specjalna oferta" musi być liczbą całkowitą.',
+
+            'specialoffer_text.max' => 'Pole "Tekst specjalnej oferty" nie może mieć więcej niż 250 znaków.',
+
+            'garage_text.max' => 'Pole "Tekst garażu" nie może mieć więcej niż 250 znaków.',
+
+            'safe_loan.required_if' => 'Pole "Bezpieczna pożyczka" jest wymagane, gdy typ wynosi 1.',
+            'safe_loan.integer' => 'Pole "Bezpieczna pożyczka" musi być liczbą całkowitą.',
 
             'client_id.exists' => 'The selected client does not exist.',
             'saled_at.date' => 'The saled at must be a valid date.',

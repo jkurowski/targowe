@@ -42,6 +42,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <div class="toggleRow">
                                             @include('form-elements.mappa', ['label' => 'Współrzędne punktów', 'name' => 'cords', 'value' => $entry->cords, 'rows' => 10, 'class' => 'mappa-html'])
                                             @include('form-elements.mappa', ['label' => 'Współrzędne punktów HTML', 'name' => 'html', 'value' => $entry->html, 'rows' => 10, 'class' => 'mappa-area'])
@@ -51,11 +60,12 @@
                                             '0' => 'Nie'
                                             ]
                                         ])
-                                        @include('form-elements.html-select', ['label' => 'Promocja', 'name' => 'specialoffer', 'selected' => $entry->specialoffer, 'select' => [
+                                        @include('form-elements.html-select', ['label' => 'Promocja', 'name' => 'highlighted', 'selected' => $entry->highlighted, 'select' => [
                                             '0' => 'Nie',
                                             '1' => 'Tak'
                                             ]
                                         ])
+                                        @include('form-elements.input-text', ['label' => 'Cena promocyjna', 'sublabel'=> 'Tylko liczby', 'name' => 'promotion_price', 'value' => $entry->promotion_price])
                                         @include('form-elements.html-select', ['label' => 'Bezpieczny Kredyt 2%', 'name' => 'safe_loan', 'selected' => $entry->safe_loan, 'select' => [
                                             '0' => 'Nie',
                                             '1' => 'Tak'
@@ -176,7 +186,7 @@
                                         @include('form-elements.html-input-text-count', ['label' => 'Opis w dymku', 'sublabel'=> 'Tylko dla garaży', 'name' => 'garage_text', 'value' => $entry->garage_text, 'maxlength' => 180])
 
                                         @include('form-elements.input-text', ['label' => 'Powierzchnia', 'name' => 'area', 'value' => $entry->area, 'required' => 1])
-                                        @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
+                                        @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price_brutto', 'value' => $entry->price_brutto])
 
                                 <div class="row form-group">
                                     <div class="col-3 col-form-label control-label">&nbsp;</div>

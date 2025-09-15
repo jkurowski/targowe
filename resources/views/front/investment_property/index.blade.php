@@ -2164,3 +2164,56 @@
         </section>
     </main>
 @endsection
+@push('scripts')
+    <link href="{{ asset('/css/history.min.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+        document.addEventListener('click', async function (e) {
+            // History Button
+            const btnHistory = e.target.closest('.btn-history');
+            if (btnHistory) {
+                e.preventDefault();
+
+                // Disable button to prevent double click
+                btnHistory.disabled = true;
+
+                const modalHolder = document.getElementById('modalHistory');
+                const dataId = btnHistory.dataset.id;
+                modalHolder.innerHTML = '';
+
+                try {
+                    const url = `/historia/${dataId}/`;
+
+                    const response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        }
+                    });
+
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error('Błąd z backendu:', response.status, errorText);
+                        throw new Error(`Błąd sieci: ${response.status}`);
+                    }
+
+                    const html = await response.text();
+                    modalHolder.innerHTML = html;
+
+                    const modalElement = document.getElementById('portletModal');
+                    const bootstrapModal = new bootstrap.Modal(modalElement);
+                    bootstrapModal.show();
+
+                    modalElement.addEventListener('hidden.bs.modal', () => {
+                        modalHolder.innerHTML = '';
+                    }, { once: true });
+
+                } catch (error) {
+                    alert('Wystąpił błąd podczas ładowania historii.');
+                    console.error(error);
+                } finally {
+                    // Re-enable the button after request completes
+                    btnHistory.disabled = false;
+                }
+            }
+        });
+    </script>
+@endpush
