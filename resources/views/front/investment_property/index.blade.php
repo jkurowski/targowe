@@ -655,23 +655,27 @@
                                         <p>@money(($property->promotion_price / $property->area)) / m<sup>2</sup></p>
                                     </div>
                                 @endif
-                                @auth()
                                 <div class="col-12 order-3">
-                                    <a href="#" class="btn btn-primary btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
-                                            <g transform="translate(-339 -1753.9)" data-name="Group 816">
-                                                <g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20">
-                                                    <ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"></ellipse>
-                                                    <ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"></ellipse>
-                                                </g>
-                                                <g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right">
-                                                    <path d="M0,5.764,5.764,0" data-name="Path 14793"></path>
-                                                    <path d="m0 0h5.764v5.764" data-name="Path 14794"></path>
-                                                </g>
-                                            </g>
-                                        </svg></a>
-                                    <div id="modalHistory"></div>
+                                    @if($property->status == 1)
+                                        @if($property->has_price_history)
+                                            <a href="#" class="btn btn-primary btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny <svg viewBox="0 0 19.971 19.971" xmlns="http://www.w3.org/2000/svg">
+                                                    <g transform="translate(-339 -1753.9)" data-name="Group 816">
+                                                        <g transform="translate(358.97 1753.9) rotate(90)" fill="#345e3e" stroke="#345e3e" data-name="Ellipse 20">
+                                                            <ellipse cx="9.985" cy="9.985" rx="9.985" ry="9.985" stroke="none"></ellipse>
+                                                            <ellipse cx="9.985" cy="9.985" rx="9.485" ry="9.485" fill="none"></ellipse>
+                                                        </g>
+                                                        <g transform="translate(348.98 1759.8) rotate(45)" fill="none" stroke="#fffbf5" stroke-linecap="round" stroke-linejoin="round" data-name="Icon feather-arrow-up-right">
+                                                            <path d="M0,5.764,5.764,0" data-name="Path 14793"></path>
+                                                            <path d="m0 0h5.764v5.764" data-name="Path 14794"></path>
+                                                        </g>
+                                                    </g>
+                                                </svg></a>
+                                            <div id="modalHistory"></div>
+                                        @else
+                                            <p class="small"><i>Cena nie zmieniła się od 11.09.2025 r.</i></p>
+                                        @endif
+                                    @endif
                                 </div>
-                                @endauth
                             </div>
 
                         @auth()
