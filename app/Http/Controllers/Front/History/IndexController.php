@@ -9,7 +9,7 @@ use App\Models\Property;
 
 class IndexController extends Controller
 {
-    public function show(Property $property)
+    public function show($lang, Property $property)
     {
 //        if (!request()->ajax()) {
 //            abort(403, 'Tylko AJAX');
