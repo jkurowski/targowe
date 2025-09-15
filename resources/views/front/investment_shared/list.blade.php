@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-6 col-sm-4 col-md pe-3 pe-lg-5 d-flex align-items-center">
                         <ul class="mb-0 list-unstyled">
-                            @if($room->price && $room->investment->show_prices)
-                                <li>cena: <b>@money($room->price)</b></li>
+                            @if($room->price_brutto && $room->investment->show_prices)
+                                <li>cena: <b>@money($room->price_brutto)</b></li>
                             @endif
                             <li>pokoje: <b>{{$room->rooms}}</b></li>
                             <li>pow.: <b>{{$room->area}} m<sup>2</sup></b></li>
