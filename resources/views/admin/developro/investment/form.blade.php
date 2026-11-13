@@ -107,6 +107,20 @@
                             ])
                         </div>
                         <div class="col-4 mt-4">
+                            @include('form-elements.crm.html-input-text', [
+                                'label' => 'Długość geograficzna lokalizacji (np. 19.141800)',
+                                'name' => 'inv_longitude',
+                                'value' => $entry->inv_longitude,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.crm.html-input-text', [
+                                'label' => 'Szerokość geograficzna lokalizacji (np. 51.590500)',
+                                'name' => 'inv_latitude',
+                                'value' => $entry->inv_latitude,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
                             @include('form-elements.crm.html-select', [
                                 'label' => 'Spółka celowa',
                                 'name' => 'company_id',
